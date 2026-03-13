@@ -1,11 +1,13 @@
 /* --- FOUNDATION POPUP --- */
 function initFoundationPopup() {
-    // Only show on blog pages (home or articles)
-    const isBlogHome = window.location.pathname.includes('blog.html');
-    const isBlogArticle = document.querySelector('.blog-article-container') !== null;
+    // Only show if the user is in the "Blog" section (navigation marker)
+    const blogNavLink = document.querySelector('.nav-link[href*="blog.html"]');
+    const isBlogSection = blogNavLink && blogNavLink.classList.contains('active');
     
-    if (!isBlogHome && !isBlogArticle) return;
+    if (!isBlogSection) return;
 
+    // Check if already shown in this session
+    if (sessionStorage.getItem('foundationPopupShown')) return;
     // Wait 10 seconds before showing
     setTimeout(() => {
         if (!document.getElementById('foundationModal')) {
