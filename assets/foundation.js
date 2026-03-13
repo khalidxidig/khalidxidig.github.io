@@ -6,10 +6,13 @@ function initFoundationPopup() {
     // Wait 10 seconds before showing
     setTimeout(() => {
         if (!document.getElementById('foundationModal')) {
-            const assetBase = document.body.getAttribute('data-asset-base') || '';
+            let assetBase = document.body.getAttribute('data-asset-base') || '';
+            // If assetBase is "./", normalize it to empty string for cleaner paths
+            if (assetBase === './') assetBase = '';
+            
             const foundationPath = assetBase + 'assets/images/foundation/';
             
-            const slides = [
+            const slideImages = [
                 foundationPath + 'slide1.jpg',
                 foundationPath + 'slide2.jpg',
                 foundationPath + 'slide3.jpg',
@@ -24,7 +27,7 @@ function initFoundationPopup() {
                         <button class="foundation-modal-close" aria-label="Close">&times;</button>
                         <div class="foundation-banner">
                             <div class="foundation-slider">
-                                ${slides.map((src, index) => `
+                                ${slideImages.map((src, index) => `
                                     <div class="foundation-slide">
                                         ${index === 0 ? `<div class="foundation-logo-overlay"><img src="${logoSrc}" alt="Logo"></div>` : ''}
                                         <img src="${src}" alt="Mama Ugaaso Foundation Slide ${index + 1}">
