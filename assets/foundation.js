@@ -1,7 +1,10 @@
 /* --- FOUNDATION POPUP --- */
 function initFoundationPopup() {
-    // Check if already shown in this session
-    if (sessionStorage.getItem('foundationPopupShown')) return;
+    // Only show on blog pages (home or articles)
+    const isBlogHome = window.location.pathname.includes('blog.html');
+    const isBlogArticle = document.querySelector('.blog-article-container') !== null;
+    
+    if (!isBlogHome && !isBlogArticle) return;
 
     // Wait 10 seconds before showing
     setTimeout(() => {
