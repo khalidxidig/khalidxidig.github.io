@@ -1,0 +1,10 @@
+{
+  "name": "khalid-mohamed-ali-portfolio",
+  "description": "Portfolio site - Civil Engineer & Architectural Designer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve . -p 8080",
+    "start": "npm run serve"
+  }
+}

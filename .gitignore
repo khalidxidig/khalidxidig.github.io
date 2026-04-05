@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Dependencies (if you add npm later)
+node_modules/
+
+# Build / output (if you add a build step)
+dist/
+build/
+*.min.css
+*.min.js
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional: keep images in repo; uncomment to ignore large assets
+# assets/images/*.jpg
+# assets/images/*.jpeg
+# assets/images/*.png
+# assets/images/*.webp

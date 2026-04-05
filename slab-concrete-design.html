@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fahamka noocyada kala duwan ee slab-yada sida Flat Slab iyo Ribbed Slab ee dhismaha casriga ah. By Khalid Mohamed Ali.">
+    <meta name="theme-color" content="#4F46E5">
+    <title>Waa Maxay Slab? Faahfaahin & Noocyadiisa - Khalid Mohamed Ali</title>
+    <meta name="keywords" content="khalidmohamed.me, Slab Design, Flat Slab Somalia, Ribbed Slab, Concrete Construction Mogadishu, Civil Engineering Somali">
+    <link rel="canonical" href="https://khalidmohamed.me/slab-concrete-design.html">
+    <meta property="og:title" content="Waa Maxay Slab? Faahfaahin & Noocyadiisa - Khalid Mohamed Ali">
+    <meta property="og:description" content="Fahamka noocyada kala duwan ee slab-yada sida Flat Slab iyo Ribbed Slab ee dhismaha casriga ah.">
+    <meta property="og:url" content="https://khalidmohamed.me/slab-concrete-design.html">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css?v=1.1">
+    <link rel="stylesheet" href="assets/foundation.css">
+    <style>
+        .article-content h2, .article-content h3, .article-content h4 {
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+            color: var(--text);
+        }
+        .article-content p {
+            margin-bottom: 1.2em;
+            line-height: 1.8;
+        }
+
+        /* Professional Bullet Styling */
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.2em;
+            line-height: 1.8;
+        }
+        .article-content ul {
+            list-style: none; /* Custom Bullets */
+        }
+        .article-content ul li {
+            margin-bottom: 0.8em;
+            position: relative;
+        }
+        .article-content ul li::before {
+            content: "\f054"; /* FontAwesome Chevron Right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 0.85em;
+            position: absolute;
+            left: -1.5em;
+            top: 5px;
+        }
+        /* Disable pseudo-bullets for lists with manual inline icons */
+        .article-content ul.custom-icons li::before {
+            content: none;
+        }
+        .article-content ol li {
+            margin-bottom: 0.8em;
+        }
+
+        /* Zoomable Image Classes */
+        .img-container {
+            margin: 30px auto; 
+            max-width: 380px; /* Reduced specific size for visuals */
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow-md); 
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        
+        .zoom-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .img-container:hover .zoom-overlay {
+            opacity: 1;
+        }
+
+        .zoomable-img {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            cursor: zoom-in;
+            background-color: var(--card); /* Add a slight bg in case of transparent pngs */
+            transition: transform 0.3s ease;
+        }
+        .zoomable-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Lightbox Modal Styles */
+        .lightbox-modal {
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #ccc;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .close-lightbox:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body data-asset-base="./">
+
+    <header>
+        <div class="container navbar">
+            <a href="./" class="navbar-brand">
+                <div class="brand-profile">
+                    <img src="assets/images/khalid.jpeg" alt="Profile" class="brand-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Khalid Mohamed Ali</span>
+                    <span class="brand-title">Civil Engineer & Architectural Designer</span>
+                </div>
+            </a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="project/projects.html" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article-container">
+        <article class="container article-wrapper">
+            <div class="article-header">
+                <span class="blog-category">Rcc Design</span>
+                <h1 class="article-title">Waa Maxay Slab?</h1>
+                <div class="article-meta" style="display: flex; align-items: center; gap: 20px; font-weight: 500;">
+                    <span class="author"><i class="fas fa-user-circle" style="color: var(--primary); margin-right: 6px; font-size: 1.1em;"></i> Eng. Khalid Mohamed Ali</span>
+                    <span class="date"><i class="fas fa-calendar-alt" style="color: var(--primary); margin-right: 6px;"></i> March 4, 2026</span>
+                </div>
+            </div>
+
+            <div class="article-featured-image">
+                <img src="assets/images/slab-feature.png" alt="Modern Concrete Slab Design">
+            </div>
+
+            <div class="article-content">
+                <h2><i class="fas fa-layer-group" style="color: var(--primary); margin-right: 10px;"></i>Waa maxay Slab?</h2>
+                <p><strong>Slab</strong> waa xubin dhismeed (structural element) oo fidsan, oo inta badan laga sameeyo shub la xoojiyey (reinforced concrete). Kaas oo loogu talagalay inuu qaado culaysyada kala duwan (sida dadka, alaabta, iyo culeyska dhismaha), isla markaana si badbaado leh ugu gudbiyo qaybaha kale ee dhismaha sida beams iyo columns.</p>
+                
+                <p>Waxaa loo isticmaalaa in uu noqdo:</p>
+                <ul>
+                    <li>Sagxad (floor).</li>
+                    <li>Saqaf (roof).</li>
+                    <li>Ama meel dusha sare ah oo culays qaadi karta.</li>
+                </ul>
+
+                <h2><i class="fas fa-puzzle-piece" style="color: var(--primary); margin-right: 10px;"></i>Qaybaha uu ka kooban yahay Slab</h2>
+                <p>Slab-ku wuxuu ka kooban yahay saddex qaybood oo waaweyn:</p>
+                
+                <div style="margin-bottom: 30px; display: flow-root;">
+                    <!-- Image Container -->
+                    <div class="img-container" style="float: right; margin: 0 0 20px 40px; width: 40%; min-width: 250px; max-width: 400px;">
+                        <span class="zoom-overlay"><i class="fas fa-search-plus"></i> Guji Si Aad U Weynayso</span>
+                        <img src="assets/images/slab-components.png" alt="Slab Components Visualization" class="zoomable-img">
+                        <p style="text-align: center; font-size: 0.9em; padding: 10px; background: var(--bg); margin: 0; color: var(--text-muted); border-top: 1px solid var(--border);">Sawir muujinaya qaybaha Slab-ka: Shubka, Birta, iyo Formwork-ga</p>
+                    </div>
+
+                    <ol style="margin-top: 0;">
+                        <li><strong>Concrete (Shubka):</strong> Waxay Slab-ka siisaa qaabka guud iyo adkaanta (strength) slab-ka.</li>
+                        <li><strong>Reinforcement (Birta):</strong> Waa biraha lagu dhex daro shubka si ay u bixiyaan xoog dheeraad ah.
+                            <br>Waxay ka hortagaan:
+                            <ul>
+                                <li>Dildilaaca (cracking).</li>
+                                <li>Jabitaanka (failure).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Formwork (Shuttering):</strong> Waa qaab dhismeedka ku meel gaarka ah ee lagu shubo shubka inta uu weli qoyan yahay.
+                            <br>Shaqadiisu waa:
+                            <ul>
+                                <li>Inuu siiyo slab-ka qaab sax ah.</li>
+                                <li>Inuu hayo shubka ilaa uu ka adkaanayo (harden).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p>Saddexdaas qaybood waxay slab-ka ka dhigayaan inuu noqdo mid adag, qaab leh, oo ammaan ah.</p>
+                </div>
+
+                <hr style="margin: 40px 0; border-color: var(--border);">
+
+                <h2><i class="fas fa-cubes" style="color: var(--primary); margin-right: 10px;"></i>Noocyada Slabs (Types of Slabs)</h2>
+
+                <h3>1. One Way Slab</h3>
+                <p>Waa slab uu culaysku u gudbiyo hal jiho oo keliya, badanaa waxaa taageera laba dhinac (opposite sides) sida beams ama walls.</p>
+                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si fudud:</strong> Waa slab culayskiisu u socdo hal direction.</p>
+                
+                <div style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
+                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>One Way Slab</strong> hadii: <strong>Ly &divide; Lx &ge; 2</strong></p>
+                    <ul style="margin: 10px 0 0 0; padding-left: 5px;">
+                        <li><strong>Ly</strong> = Dhinaca dheer ee Slab-ka.</li>
+                        <li><strong>Lx</strong> = Dhinaca gaaban ee Slab-ka.</li>
+                    </ul>
+                </div>
+
+                <div class="img-container">
+                    <span class="zoom-overlay"><i class="fas fa-search-plus"></i> Guji Si Aad U Weynayso</span>
+                    <img src="assets/images/one-way-slab.png" alt="One Way Slab Diagram" class="zoomable-img">
+                </div>
+
+                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu Culayska u gudbiyo (Load Behavior)</h4>
+                <ul>
+                    <li>Culayska wuxuu u gudbaa jihada gaaban (short span direction).</li>
+                    <li>Kadibna wuxuu gaarayaa beams-ka.</li>
+                    <li>Ugu dambayn wuxuu u gudbaa columns.</li>
+                </ul>
+
+                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka Birta u taalo ama loo dhigo)</h4>
+                <ul>
+                    <li>Biraha ugu muhiimsan (main reinforcement) waxay u socdaan jihada gaaban (short span).</li>
+                    <li>Biraha kale (distribution bars) waxay u socdaan jiho kale si ay u xoojiyaan slab-ka.</li>
+                </ul>
+
+                <p><strong><i class="fas fa-arrow-right" style="color: var(--primary); margin-right: 8px;"></i>Main Reinforcement (Birta Ugu Muhiimsan):</strong> Kuwani waa biraha sida toos ah loogu talagalay inay qabtaan tension-ka ka dhasha foorarka (Bending).</p>
+                
+                <p><strong><i class="fas fa-cogs" style="color: var(--primary); margin-right: 8px;"></i>Sidee u shaqeeyaan?</strong></p>
+                <p>Marka culays la saaro slab-ka:</p>
+                <ul>
+                    <li>Wuxuu bilaabaa bending.</li>
+                    <li>Qaybta sare compression (cadaadis) ayaa ka dhasha.</li>
+                    <li>Qaybta hoose tension (jiidasho) ayaa iyana ka dhasha.</li>
+                </ul>
+                <p>Concrete-kuna ma qaadi karo tension. Halkaan ayay main reinforcement muhiim ka noqdaan. Waxayna raacaan jihada slab-ka uu bending-ka u sameenayo (short span).</p>
+
+                <p><strong><i class="fas fa-project-diagram" style="color: var(--primary); margin-right: 8px;"></i>Distribution Bars (Biraha Kala Qaybinta):</strong> Waa biraha kaabaya main bars-ka, sidoo kalana waxaa loo yaqaanaa <em>secondary reinforcement</em>.</p>
+                <ul>
+                    <li>Waxay u socdaan jihada ka soo horjeeda main bars-ka.</li>
+                    <li>Badanaa waa ka yar yihiin main bars-ka.</li>
+                    <li>Ma qaadaan culays weyn.</li>
+                    <li>Waxay ka hortagaan dildilaac (cracks), waana <em>anti-crack bars</em>.</li>
+                </ul>
+
+                <div style="background-color: var(--bg); border: 1px dashed var(--border); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                    <h4 style="margin-top: 0;"><i class="fas fa-compress-arrows-alt" style="color: var(--primary); margin-right: 8px;"></i>Si Kooban</h4>
+                    <div style="display: inline-block; text-align: left;">
+                        <span style="color: var(--primary);"><i class="fas fa-arrow-right" style="margin-right: 8px;"></i><strong>Main bars:</strong></span> Waa biraha culayska qaada.<br>
+                        <span style="color: var(--primary);"><i class="fas fa-project-diagram" style="margin-right: 8px;"></i><strong>Distribution bars:</strong></span> Waa biraha caawiya Main Bars ee ka hortaga cracks-ka.
+                    </div>
+                </div>
+
+                <hr style="margin: 40px 0; border-color: var(--border);">
+
+                <h3>2. Two-Way Slab</h3>
+                <p>Waa slab uu culaysku u gudbo laba jiho (two directions), taasoo ka dhigan in culayska uu u kala fido dhinaca dhererka iyo ballaca labadaba.</p>
+                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si fudud:</strong> Waa slab culayskiisu u socdo laba direction.</p>
+
+                <div style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
+                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>Two Way Slab</strong> hadii: <strong>Ly &divide; Lx &lt; 2</strong></p>
+                </div>
+
+                <div class="img-container">
+                    <span class="zoom-overlay"><i class="fas fa-search-plus"></i> Guji Si Aad U Weynayso</span>
+                    <img src="assets/images/two-way-slab.png" alt="Two Way Slab Diagram" class="zoomable-img">
+                </div>
+
+                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu Culayska u gudbiyo (Load Behavior)</h4>
+                <ul>
+                    <li>Culayska slab-ka saran wuxuu u kala baxaa labada jiho.</li>
+                    <li>Waxaa qaada beams-ka ku wareegsan.</li>
+                    <li>Ugu dambayn wuxuu culayska gaarayaa foundation-ka.</li>
+                </ul>
+
+                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka Birta u taalo ama loo dhigo)</h4>
+                <p>Two way slab waxaa sidoo kale lagu gartaa:</p>
+                <ul>
+                    <li>Main reinforcement laba jiho ayuu u socdaa.</li>
+                    <li>Ma jiro hal jiho oo kaliya oo culays qaada.</li>
+                    <li>Biraha waxay sameeyaan grid (mesh).</li>
+                </ul>
+
+                <hr style="margin: 40px 0; border-color: var(--border);">
+
+                <h3>3. Flat Slab</h3>
+                <p>Ma lahan beams (ama waa yar yihiin). Si toos ah ayuu u saaranyahay columns. Waxaana badanaa loo isticmaalaa dhismayaasha casriga ah.</p>
+
+                <h3>4. Hollow / Ribbed Slab</h3>
+                <p>Waa Slab leh tunnels (godad) si loo dhimo miisaanka slab-ka iyada oo aysan wax saameyn ah ku yeelan xooggiisa.</p>
+                <p>Waxaa badanaa loo isticmaalaa dhismayaasha dabaqyada badan (multi-story buildings) sababtoo ah waxay fududeysaa culayska saaran columns-ka iyo foundations-ka.</p>
+
+                <hr style="margin: 40px 0; border-color: var(--border);">
+
+                <h2><i class="fas fa-arrows-alt-v" style="color: var(--primary); margin-right: 10px;"></i>Dhumucda Slab-ka (Thickness) - Caadi ahaan: 100mm &ndash; 200mm</h2>
+                <p>Waxayna ku xiran tahay:</p>
+                <ul class="custom-icons">
+                    <li><i class="fas fa-balance-scale" style="color: var(--primary); margin-right: 8px;"></i>Culayska</li>
+                    <li><i class="fas fa-ruler-horizontal" style="color: var(--primary); margin-right: 8px;"></i>Dhererka (span)</li>
+                    <li><i class="fas fa-shapes" style="color: var(--primary); margin-right: 8px;"></i>Nooca slab-ka.</li>
+                </ul>
+            </div>
+
+            <div class="article-footer">
+                <div class="back-to-blog-wrapper">
+                    <a href="blog.html" class="btn btn-primary back-to-blog-bottom">
+                        <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Blog
+                    </a>
+                </div>
+                <div class="social-share">
+                    <span class="share-label">Share this article:</span>
+                    <div class="share-buttons">
+                        <a href="#" class="social-share-btn share-facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-share-btn share-whatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-share-btn share-telegram" aria-label="Share on Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </article>
+
+        <!-- Related Posts Section -->
+        <section class="related-posts" style="background-color: transparent; border-top: none; padding-top: 40px;">
+            <div class="container" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: var(--text-2xl); margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 10px;"><i class="fas fa-book-reader" style="color: var(--primary); margin-right: 10px;"></i>Aqri Sidoo Kale (Related Posts)</h2>
+                <div style="text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; border: 1px dashed var(--border);">
+                    <i class="fas fa-folder-open" style="font-size: 2.5rem; color: var(--muted); margin-bottom: 15px; display: block;"></i>
+                    <p style="color: var(--muted); font-size: 1.1rem; margin: 0;">Ma jiraan maqaallo kale oo la xiriira qaybta <strong>Rcc Design</strong> hadda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="project/projects.html">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 Khalid Mohamed Ali. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal DOM -->
+    <div class="lightbox-modal" id="imageLightbox">
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Zoomed Image">
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/main.js"></script>
+    <script src="assets/foundation.js"></script>
+    <script>
+        // Lightbox Functionality
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("imageLightbox");
+            const modalImg = document.getElementById("lightboxImg");
+            const closeBtn = document.getElementById("closeLightbox");
+            
+            // Allow all zoomable images to open the lightbox
+            const zoomImages = document.querySelectorAll(".zoomable-img");
+            zoomImages.forEach(img => {
+                img.addEventListener("click", () => {
+                    modalImg.src = img.src;
+                    modal.classList.add("active");
+                    document.body.style.overflow = "hidden"; // Prevent scrolling when open
+                });
+            });
+
+            // Close function
+            const closeModal = () => {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            };
+
+            // Interactions to close
+            closeBtn.addEventListener("click", closeModal);
+            modal.addEventListener("click", (e) => {
+                if (e.target !== modalImg) {
+                    closeModal();
+                }
+            });
+            // Escape key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && modal.classList.contains("active")) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

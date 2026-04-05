@@ -1,0 +1,179 @@
+/* --- FOUNDATION MODAL --- */
+.foundation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.foundation-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.foundation-modal-content {
+    background: var(--bg);
+    max-width: 500px;
+    width: 95%;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--border);
+}
+
+.foundation-modal.show .foundation-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.foundation-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    z-index: 20;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.foundation-modal-close:hover {
+    background: #fff;
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: var(--shadow-md);
+    color: var(--primary);
+}
+
+.foundation-banner {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.foundation-slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.foundation-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.foundation-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Logo Overlay for the first slide (Collage Effect) */
+.foundation-logo-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    z-index: 5;
+}
+
+.foundation-logo-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.foundation-text {
+    padding: 30px;
+    text-align: center;
+}
+
+.foundation-text h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: 8px;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.foundation-subtitle {
+    font-size: var(--text-lg);
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.foundation-description {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.foundation-description strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.foundation-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.foundation-actions .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: var(--text-base);
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .foundation-banner {
+        height: 180px;
+    }
+    .foundation-text {
+        padding: 20px;
+    }
+}
+
+/* Dark Mode Extensions */
+[data-theme="dark"] .foundation-modal-content {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 197, 94, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .foundation-logo-overlay {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
