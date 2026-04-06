@@ -1058,6 +1058,22 @@ footer p {
     .contact-container {
         padding: 30px;
     }
+
+    .hero {
+        padding: 60px 0 40px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .features {
+        padding: 20px 0 20px;
+    }
+
+    .featured-projects {
+        padding: 20px 0 40px;
+    }
 }
 
 @media (max-width: 480px) {
