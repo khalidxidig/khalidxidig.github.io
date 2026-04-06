@@ -512,7 +512,7 @@ header {
    ========================================================================== */
 .hero {
     background: linear-gradient(135deg, var(--card) 0%, var(--bg) 100%);
-    padding: 120px 0;
+    padding: 100px 0 60px;
     text-align: center;
 }
 
@@ -538,11 +538,15 @@ header {
     line-height: 1.6;
 }
 
+.features {
+    padding: 20px 0 30px;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .feature-card {
@@ -575,6 +579,7 @@ header {
    7. Featured Projects
    ========================================================================== */
 .featured-projects {
+    padding: 30px 0 80px;
     background-color: var(--white);
 }
 
