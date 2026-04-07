@@ -4628,13 +4628,17 @@ select.premium-input {
     .reviews-header h2 { font-size: 1.6rem !important; margin-bottom: 10px !important; }
     
     .reviews-slider-outer { 
-        padding-bottom: 40px !important; 
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 5px !important;
+        padding-bottom: 50px !important; 
         margin-top: 10px !important;
     }
     
     .slider-card { 
-        padding: 20px 15px !important; 
+        padding: 25px 20px !important; 
         min-height: auto !important;
+        width: 100% !important;
     }
     
     .rev-quote-center { font-size: 1.5rem !important; margin-bottom: 10px !important; }
@@ -4653,14 +4657,29 @@ select.premium-input {
     .arrow-prev { left: calc(50% - 40px) !important; }
     .arrow-next { right: calc(50% - 40px) !important; }
 
-    /* Review Form - Compact */
-    .review-form-wrapper { padding: 20px 15px !important; margin-top: 25px !important; }
+    /* Review Form - Compact & Wide */
+    .review-form-wrapper { 
+        padding: 20px 15px !important; 
+        margin-top: 25px !important; 
+        width: 100% !important;
+        max-width: none !important;
+        border-radius: 20px !important;
+    }
     .review-form-wrapper h3 { font-size: 1.25rem !important; margin-bottom: 15px !important; }
     .star-rating-input { margin-bottom: 15px !important; gap: 8px !important; }
     .star-rating-input label { font-size: 1.2rem !important; }
     .form-group-rev { margin-bottom: 12px !important; }
     .form-group-rev label { font-size: 0.8rem !important; margin-bottom: 4px !important; }
     .form-group-rev input, .form-group-rev textarea { padding: 10px !important; font-size: 0.9rem !important; }
+    
+    /* Project Description Card - Wider on mobile */
+    .project-description-container {
+        width: 100% !important;
+        max-width: none !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        border-radius: 20px !important;
+    }
     
     /* Welcome Modal Refinements - Super Compact */
     .premium-modal { max-height: 80vh !important; }
