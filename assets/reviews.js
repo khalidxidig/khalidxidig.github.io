@@ -19,6 +19,13 @@ function initReviewsSlider() {
     let currentIndex = 0;
     const totalSlides = slides.length;
 
+    if (totalSlides === 0) {
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        return;
+    }
+
     // Create Dots
     slides.forEach((_, index) => {
         const dot = document.createElement('div');
