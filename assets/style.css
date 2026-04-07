@@ -4618,85 +4618,58 @@ select.premium-input {
 }
 
 
-/* --- Final Mobile UI Polish (Modal, Reviews, Overview) --- */
+/* --- COMPACT MOBILE UI MODE --- */
 @media (max-width: 768px) {
-    /* Welcome Modal - Ensuring button visibility */
-    .premium-modal {
-        max-height: 85vh !important;
+    /* Tighten Section Padding */
+    section { padding: 40px 0 !important; }
+    
+    /* Review Slider - Extreme Compact */
+    .reviews-header { margin-bottom: 25px !important; }
+    .reviews-header h2 { font-size: 1.6rem !important; margin-bottom: 10px !important; }
+    
+    .reviews-slider-outer { 
+        padding-bottom: 40px !important; 
+        margin-top: 10px !important;
     }
     
-    .modal-visual-side {
-        min-height: 150px !important;
+    .slider-card { 
+        padding: 20px 15px !important; 
+        min-height: auto !important;
     }
     
-    .modal-visual-side .profile-modal-img {
-        width: 100px !important;
-        height: 100px !important;
-    }
-    
-    .modal-content-side {
-        padding: 20px !important;
-    }
-    
-    .modal-content-side .profile-modal-name {
-        font-size: 1.6rem !important;
-    }
-    
-    .modal-content-side .profile-modal-title {
-        font-size: 0.75rem !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .profile-modal-info p {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* Review Slider - Fixing arrow overlap */
-    .reviews-header h2 {
-        font-size: 1.8rem !important;
-    }
-    
-    .reviews-slider-outer {
-        padding-bottom: 70px !important;
-    }
+    .rev-quote-center { font-size: 1.5rem !important; margin-bottom: 10px !important; }
+    .rev-content-large { font-size: 0.95rem !important; line-height: 1.5 !important; margin: 10px 0 !important; }
     
     .slider-arrow {
+        width: 34px !important;
+        height: 34px !important;
+        bottom: 0px !important;
+        transform: none !important;
+        font-size: 0.8rem !important;
+        position: absolute !important;
         top: auto !important;
-        bottom: 0 !important;
-        transform: translateY(100%) !important;
-        background: var(--card) !important;
-        border: 1px solid var(--border) !important;
-        box-shadow: var(--shadow-sm) !important;
-        width: 45px !important;
-        height: 45px !important;
     }
     
-    .arrow-prev {
-        left: calc(50% - 55px) !important;
-    }
-    
-    .arrow-next {
-        right: calc(50% - 55px) !important;
-    }
-    
-    .rev-content-large {
-        font-size: 1.1rem !important;
-        line-height: 1.6 !important;
-    }
+    .arrow-prev { left: calc(50% - 40px) !important; }
+    .arrow-next { right: calc(50% - 40px) !important; }
 
-    /* Review Form - Modernizing for mobile */
-    .review-form-wrapper {
-        padding: 30px 15px !important;
-        border-radius: 20px !important;
-    }
+    /* Review Form - Compact */
+    .review-form-wrapper { padding: 20px 15px !important; margin-top: 25px !important; }
+    .review-form-wrapper h3 { font-size: 1.25rem !important; margin-bottom: 15px !important; }
+    .star-rating-input { margin-bottom: 15px !important; gap: 8px !important; }
+    .star-rating-input label { font-size: 1.2rem !important; }
+    .form-group-rev { margin-bottom: 12px !important; }
+    .form-group-rev label { font-size: 0.8rem !important; margin-bottom: 4px !important; }
+    .form-group-rev input, .form-group-rev textarea { padding: 10px !important; font-size: 0.9rem !important; }
     
-    .review-form-wrapper input, 
-    .review-form-wrapper textarea {
-        background: var(--bg) !important;
-        border-radius: 12px !important;
-        padding: 12px !important;
-    }
+    /* Welcome Modal Refinements - Super Compact */
+    .premium-modal { max-height: 80vh !important; }
+    .modal-visual-side { min-height: 100px !important; padding: 10px !important; }
+    .modal-visual-side .profile-modal-img { width: 70px !important; height: 70px !important; }
+    .modal-content-side { padding: 15px !important; }
+    .modal-content-side .profile-modal-name { font-size: 1.3rem !important; margin-bottom: 2px !important; }
+    .modal-content-side .profile-modal-title { font-size: 0.7rem !important; margin-bottom: 10px !important; }
+    .profile-modal-info p { font-size: 0.85rem !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+    .modal-cta-group { margin-top: 10px !important; gap: 8px !important; }
 }
 

@@ -266,10 +266,24 @@
 
                 @media (max-width: 768px) {
                     .project-description-container { padding: 30px 15px; }
-                    .premium-title { font-size: 1.8rem; }
-                    .premium-title::after { width: 60px; height: 3px; bottom: -8px; }
-                    .description-text { font-size: 1.0rem; line-height: 1.6; margin-top: 25px; }
-                    .feature-item-landscape { width: 100%; justify-content: center; padding: 12px 15px; }
+                    .premium-title { font-size: 1.6rem; margin-bottom: 20px; }
+                    .premium-title::after { width: 50px; height: 3px; bottom: -8px; }
+                    .description-text { font-size: 0.95rem; line-height: 1.5; margin-top: 20px; }
+                    .features-landscape-section { padding-top: 30px; }
+                    .features-title { font-size: 1.1rem; margin-bottom: 25px; }
+                    .features-landscape-grid { 
+                        display: grid; 
+                        grid-template-columns: repeat(2, 1fr); 
+                        gap: 12px; 
+                    }
+                    .feature-item-landscape { 
+                        flex-direction: column;
+                        padding: 15px 10px; 
+                        text-align: center;
+                        gap: 8px;
+                    }
+                    .feature-item-landscape i { width: 32px; height: 32px; font-size: 1rem; }
+                    .feature-item-landscape span { font-size: 0.85rem; }
                 }
             </style>
 
