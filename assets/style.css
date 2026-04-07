@@ -4561,3 +4561,59 @@ select.premium-input {
     }
 }
 
+
+/* --- Mobile UI Specific Fixes --- */
+@media (max-width: 768px) {
+    /* 1. Fix Profile Distortion */
+    .brand-profile {
+        flex-shrink: 0 !important;
+        width: 56px !important;
+        height: 56px !important;
+    }
+    
+    .brand-img {
+        flex-shrink: 0 !important;
+        width: 48px !important;
+        height: 48px !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    /* 2. Compact Mobile Headers */
+    .page-header {
+        padding: 15px 0 !important;
+    }
+    .page-header h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 5px !important;
+    }
+    .page-header p {
+        font-size: 0.9rem !important;
+    }
+
+    /* 3. Welcome Modal Visibility Fix */
+    .premium-modal {
+        overflow-y: auto !important;
+        max-height: 92vh !important;
+    }
+    
+    .modal-content-side {
+        padding: 25px 20px !important;
+    }
+    
+    .modal-cta-group {
+        margin-top: 20px !important;
+        padding-bottom: 10px !important;
+    }
+    
+    .modal-visual-side {
+        min-height: 180px !important;
+        flex: none !important;
+        width: 100% !important;
+    }
+    
+    .modal-visual-side .profile-modal-img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
