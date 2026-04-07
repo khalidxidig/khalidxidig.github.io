@@ -8,10 +8,12 @@
         content="Fahamka noocyada kala duwan ee slab-yada sida Flat Slab iyo Ribbed Slab ee dhismaha casriga ah. By Khalid Mohamed Ali.">
     <meta name="theme-color" content="#4F46E5">
     <title>Waa Maxay Slab? Faahfaahin & Noocyadiisa - Khalid Mohamed Ali</title>
-    <meta name="keywords" content="khalidmohamed.me, Slab Design, Flat Slab Somalia, Ribbed Slab, Concrete Construction Mogadishu, Civil Engineering Somali">
+    <meta name="keywords"
+        content="khalidmohamed.me, Slab Design, Flat Slab Somalia, Ribbed Slab, Concrete Construction Mogadishu, Civil Engineering Somali">
     <link rel="canonical" href="https://khalidmohamed.me/slab-concrete-design">
     <meta property="og:title" content="Waa Maxay Slab? Faahfaahin & Noocyadiisa - Khalid Mohamed Ali">
-    <meta property="og:description" content="Fahamka noocyada kala duwan ee slab-yada sida Flat Slab iyo Ribbed Slab ee dhismaha casriga ah.">
+    <meta property="og:description"
+        content="Fahamka noocyada kala duwan ee slab-yada sida Flat Slab iyo Ribbed Slab ee dhismaha casriga ah.">
     <meta property="og:url" content="https://khalidmohamed.me/slab-concrete-design">
     <meta property="og:type" content="article">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,31 +21,69 @@
     <link rel="stylesheet" href="assets/style.css?v=1.1">
     <link rel="stylesheet" href="assets/foundation.css">
     <style>
-        .article-content h2, .article-content h3, .article-content h4 {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
             margin-top: 2em;
             margin-bottom: 0.8em;
             color: var(--text);
+            scroll-margin-top: 110px;
+            /* Provides gap for fixed header */
+            transition: color 0.3s ease;
         }
+
+        /* Highlight target headings from TOC */
+        .highlight-target {
+            animation: highlightTarget 4s ease-in-out;
+            border-radius: 8px;
+        }
+
+        @keyframes highlightTarget {
+
+            0%,
+            60% {
+                background-color: rgba(34, 197, 94, 0.35);
+                box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.35);
+                color: var(--primary);
+            }
+
+            100% {
+                background-color: transparent;
+                box-shadow: 0 0 0 0 transparent;
+                color: var(--text);
+            }
+        }
+
         .article-content p {
             margin-bottom: 1.2em;
             line-height: 1.8;
         }
 
         /* Professional Bullet Styling */
-        .article-content ul, .article-content ol {
+        .article-content ul,
+        .article-content ol {
             margin-bottom: 1.5em;
             padding-left: 1.2em;
             line-height: 1.8;
         }
+
         .article-content ul {
-            list-style: none; /* Custom Bullets */
+            list-style: none;
+            /* Custom Bullets */
         }
+
         .article-content ul li {
             margin-bottom: 0.8em;
             position: relative;
         }
+
         .article-content ul li::before {
-            content: "\f054"; /* FontAwesome Chevron Right */
+            content: "\f054";
+            /* FontAwesome Chevron Right */
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             color: var(--primary);
@@ -52,30 +92,33 @@
             left: -1.5em;
             top: 5px;
         }
+
         /* Disable pseudo-bullets for lists with manual inline icons */
         .article-content ul.custom-icons li::before {
             content: none;
         }
+
         .article-content ol li {
             margin-bottom: 0.8em;
         }
 
         /* Zoomable Image Classes */
         .img-container {
-            margin: 30px auto; 
-            max-width: 380px; /* Reduced specific size for visuals */
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-md); 
+            margin: 30px auto;
+            max-width: 380px;
+            /* Reduced specific size for visuals */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
             position: relative;
         }
-        
+
         .zoom-overlay {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             padding: 5px 10px;
             border-radius: 50px;
@@ -84,6 +127,7 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
+
         .img-container:hover .zoom-overlay {
             opacity: 1;
         }
@@ -93,9 +137,11 @@
             display: block;
             object-fit: contain;
             cursor: zoom-in;
-            background-color: var(--card); /* Add a slight bg in case of transparent pngs */
+            background-color: var(--card);
+            /* Add a slight bg in case of transparent pngs */
             transition: transform 0.3s ease;
         }
+
         .zoomable-img:hover {
             transform: scale(1.02);
         }
@@ -116,22 +162,26 @@
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+
         .lightbox-modal.active {
             opacity: 1;
             visibility: visible;
         }
+
         .lightbox-content {
             max-width: 90%;
             max-height: 90vh;
             border-radius: 8px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
             transform: scale(0.9);
             transition: transform 0.3s ease;
             object-fit: contain;
         }
+
         .lightbox-modal.active .lightbox-content {
             transform: scale(1);
         }
+
         .close-lightbox {
             position: absolute;
             top: 25px;
@@ -142,6 +192,7 @@
             cursor: pointer;
             transition: color 0.2s ease;
         }
+
         .close-lightbox:hover {
             color: #fff;
         }
@@ -176,15 +227,58 @@
         </div>
     </header>
 
+
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"
+        style="position:fixed;top:0;left:0;width:0%;height:4px;background:linear-gradient(90deg,var(--primary),#16a34a);z-index:9999;transition:width 0.1s linear;border-radius:0 2px 2px 0;">
+    </div>
+
     <main class="blog-article-container">
         <article class="container article-wrapper">
             <div class="article-header">
                 <span class="blog-category">Rcc Design</span>
                 <h1 class="article-title">Waa Maxay Slab?</h1>
-                <div class="article-meta" style="display: flex; align-items: center; gap: 20px; font-weight: 500;">
-                    <span class="author"><i class="fas fa-user-circle" style="color: var(--primary); margin-right: 6px; font-size: 1.1em;"></i> Eng. Khalid Mohamed Ali</span>
-                    <span class="date"><i class="fas fa-calendar-alt" style="color: var(--primary); margin-right: 6px;"></i> March 4, 2026</span>
+                <div class="article-meta"
+                    style="display: flex; align-items: center; gap: 20px; font-weight: 500; flex-wrap: wrap;">
+                    <span class="author"><i class="fas fa-user-circle"
+                            style="color: var(--primary); margin-right: 6px; font-size: 1.1em;"></i> Eng. Khalid Mohamed
+                        Ali</span>
+                    <span class="date"><i class="fas fa-calendar-alt"
+                            style="color: var(--primary); margin-right: 6px;"></i> March 4, 2026</span>
+                    <span id="read-time" style="color:var(--muted);font-size:0.95rem;"><i class="fas fa-clock"
+                            style="color:var(--primary);margin-right:6px;"></i><span id="read-time-val">...</span>
+                        daqiiqad</span>
+                    <button id="like-btn"
+                        style="background:var(--card);border:1px solid var(--border);padding:6px 16px;border-radius:50px;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;font-size:0.9rem;color:var(--text);transition:all 0.3s ease;">
+                        <i class="far fa-thumbs-up" id="like-icon"
+                            style="font-size:1.1rem;transition:color 0.3s ease, transform 0.3s;"></i>
+                        <span id="like-count">...</span>
+                    </button>
                 </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <div id="toc-box"
+                style="background:var(--card);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:16px;padding:25px 30px;margin:30px 0;max-width:500px;">
+                <h3 style="margin:0 0 15px;font-size:1.1rem;display:flex;align-items:center;gap:10px;"><i
+                        class="fas fa-list" style="color:var(--primary);"></i> Tusmada Maqaalka</h3>
+                <ol style="margin:0;padding-left:20px;line-height:2;font-size:0.95rem;">
+                    <li><a href="#section-what-is-slab" style="color:var(--primary);text-decoration:none;">Waa maxay
+                            Slab?</a></li>
+                    <li><a href="#section-components" style="color:var(--primary);text-decoration:none;">Qaybaha uu ka
+                            kooban yahay</a></li>
+                    <li><a href="#section-types" style="color:var(--primary);text-decoration:none;">Noocyada Slabs</a>
+                    </li>
+                    <li><a href="#section-oneway" style="color:var(--primary);text-decoration:none;">One Way Slab</a>
+                    </li>
+                    <li><a href="#section-twoway" style="color:var(--primary);text-decoration:none;">Two-Way Slab</a>
+                    </li>
+                    <li><a href="#section-flat" style="color:var(--primary);text-decoration:none;">Flat Slab & Ribbed
+                            Slab</a></li>
+                    <li><a href="#section-thickness" style="color:var(--primary);text-decoration:none;">Dhumucda
+                            Slab-ka</a></li>
+                </ol>
             </div>
 
             <div class="article-featured-image">
@@ -192,9 +286,13 @@
             </div>
 
             <div class="article-content">
-                <h2><i class="fas fa-layer-group" style="color: var(--primary); margin-right: 10px;"></i>Waa maxay Slab?</h2>
-                <p><strong>Slab</strong> waa xubin dhismeed (structural element) oo fidsan, oo inta badan laga sameeyo shub la xoojiyey (reinforced concrete). Kaas oo loogu talagalay inuu qaado culaysyada kala duwan (sida dadka, alaabta, iyo culeyska dhismaha), isla markaana si badbaado leh ugu gudbiyo qaybaha kale ee dhismaha sida beams iyo columns.</p>
-                
+                <h2 id="section-what-is-slab"><i class="fas fa-layer-group"
+                        style="color: var(--primary); margin-right: 10px;"></i>Waa maxay Slab?</h2>
+                <p><strong>Slab</strong> waa xubin dhismeed (structural element) oo fidsan, oo inta badan laga sameeyo
+                    shub la xoojiyey (reinforced concrete). Kaas oo loogu talagalay inuu qaado culaysyada kala duwan
+                    (sida dadka, alaabta, iyo culeyska dhismaha), isla markaana si badbaado leh ugu gudbiyo qaybaha kale
+                    ee dhismaha sida beams iyo columns.</p>
+
                 <p>Waxaa loo isticmaalaa in uu noqdo:</p>
                 <ul>
                     <li>Sagxad (floor).</li>
@@ -202,27 +300,34 @@
                     <li>Ama meel dusha sare ah oo culays qaadi karta.</li>
                 </ul>
 
-                <h2><i class="fas fa-puzzle-piece" style="color: var(--primary); margin-right: 10px;"></i>Qaybaha uu ka kooban yahay Slab</h2>
+                <h2 id="section-components"><i class="fas fa-puzzle-piece"
+                        style="color: var(--primary); margin-right: 10px;"></i>Qaybaha uu ka kooban yahay Slab</h2>
                 <p>Slab-ku wuxuu ka kooban yahay saddex qaybood oo waaweyn:</p>
-                
+
                 <div style="margin-bottom: 30px; display: flow-root;">
-                    <!-- Image Container -->
-                    <div class="img-container" style="float: right; margin: 0 0 20px 40px; width: 40%; min-width: 250px; max-width: 400px;">
+                    <div class="img-container"
+                        style="float: right; margin: 0 0 20px 40px; width: 40%; min-width: 250px; max-width: 400px;">
                         <span class="zoom-overlay"><i class="fas fa-search-plus"></i> Guji Si Aad U Weynayso</span>
-                        <img src="assets/images/slab-components.png" alt="Slab Components Visualization" class="zoomable-img">
-                        <p style="text-align: center; font-size: 0.9em; padding: 10px; background: var(--bg); margin: 0; color: var(--text-muted); border-top: 1px solid var(--border);">Sawir muujinaya qaybaha Slab-ka: Shubka, Birta, iyo Formwork-ga</p>
+                        <img src="assets/images/slab-components.png" alt="Slab Components Visualization"
+                            class="zoomable-img">
+                        <p
+                            style="text-align: center; font-size: 0.9em; padding: 10px; background: var(--bg); margin: 0; color: var(--text-muted); border-top: 1px solid var(--border);">
+                            Sawir muujinaya qaybaha Slab-ka: Shubka, Birta, iyo Formwork-ga</p>
                     </div>
 
                     <ol style="margin-top: 0;">
-                        <li><strong>Concrete (Shubka):</strong> Waxay Slab-ka siisaa qaabka guud iyo adkaanta (strength) slab-ka.</li>
-                        <li><strong>Reinforcement (Birta):</strong> Waa biraha lagu dhex daro shubka si ay u bixiyaan xoog dheeraad ah.
+                        <li><strong>Concrete (Shubka):</strong> Waxay Slab-ka siisaa qaabka guud iyo adkaanta (strength)
+                            slab-ka.</li>
+                        <li><strong>Reinforcement (Birta):</strong> Waa biraha lagu dhex daro shubka si ay u bixiyaan
+                            xoog dheeraad ah.
                             <br>Waxay ka hortagaan:
                             <ul>
                                 <li>Dildilaaca (cracking).</li>
                                 <li>Jabitaanka (failure).</li>
                             </ul>
                         </li>
-                        <li><strong>Formwork (Shuttering):</strong> Waa qaab dhismeedka ku meel gaarka ah ee lagu shubo shubka inta uu weli qoyan yahay.
+                        <li><strong>Formwork (Shuttering):</strong> Waa qaab dhismeedka ku meel gaarka ah ee lagu shubo
+                            shubka inta uu weli qoyan yahay.
                             <br>Shaqadiisu waa:
                             <ul>
                                 <li>Inuu siiyo slab-ka qaab sax ah.</li>
@@ -235,14 +340,20 @@
 
                 <hr style="margin: 40px 0; border-color: var(--border);">
 
-                <h2><i class="fas fa-cubes" style="color: var(--primary); margin-right: 10px;"></i>Noocyada Slabs (Types of Slabs)</h2>
+                <h2 id="section-types"><i class="fas fa-cubes"
+                        style="color: var(--primary); margin-right: 10px;"></i>Noocyada Slabs (Types of Slabs)</h2>
 
-                <h3>1. One Way Slab</h3>
-                <p>Waa slab uu culaysku u gudbiyo hal jiho oo keliya, badanaa waxaa taageera laba dhinac (opposite sides) sida beams ama walls.</p>
-                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si fudud:</strong> Waa slab culayskiisu u socdo hal direction.</p>
-                
-                <div style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
-                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>One Way Slab</strong> hadii: <strong>Ly &divide; Lx &ge; 2</strong></p>
+                <h3 id="section-oneway">1. One Way Slab</h3>
+                <p>Waa slab uu culaysku u gudbiyo hal jiho oo keliya, badanaa waxaa taageera laba dhinac (opposite
+                    sides) sida beams ama walls.</p>
+                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si
+                        fudud:</strong> Waa slab culayskiisu u socdo hal direction.</p>
+
+                <div
+                    style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
+                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>One Way Slab</strong> hadii:
+                        <strong>Ly &divide; Lx &ge; 2</strong>
+                    </p>
                     <ul style="margin: 10px 0 0 0; padding-left: 5px;">
                         <li><strong>Ly</strong> = Dhinaca dheer ee Slab-ka.</li>
                         <li><strong>Lx</strong> = Dhinaca gaaban ee Slab-ka.</li>
@@ -254,31 +365,41 @@
                     <img src="assets/images/one-way-slab.png" alt="One Way Slab Diagram" class="zoomable-img">
                 </div>
 
-                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu Culayska u gudbiyo (Load Behavior)</h4>
+                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu
+                    Culayska u gudbiyo (Load Behavior)</h4>
                 <ul>
                     <li>Culayska wuxuu u gudbaa jihada gaaban (short span direction).</li>
                     <li>Kadibna wuxuu gaarayaa beams-ka.</li>
                     <li>Ugu dambayn wuxuu u gudbaa columns.</li>
                 </ul>
 
-                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka Birta u taalo ama loo dhigo)</h4>
+                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka
+                    Birta u taalo ama loo dhigo)</h4>
                 <ul>
                     <li>Biraha ugu muhiimsan (main reinforcement) waxay u socdaan jihada gaaban (short span).</li>
                     <li>Biraha kale (distribution bars) waxay u socdaan jiho kale si ay u xoojiyaan slab-ka.</li>
                 </ul>
 
-                <p><strong><i class="fas fa-arrow-right" style="color: var(--primary); margin-right: 8px;"></i>Main Reinforcement (Birta Ugu Muhiimsan):</strong> Kuwani waa biraha sida toos ah loogu talagalay inay qabtaan tension-ka ka dhasha foorarka (Bending).</p>
-                
-                <p><strong><i class="fas fa-cogs" style="color: var(--primary); margin-right: 8px;"></i>Sidee u shaqeeyaan?</strong></p>
+                <p><strong><i class="fas fa-arrow-right" style="color: var(--primary); margin-right: 8px;"></i>Main
+                        Reinforcement (Birta Ugu Muhiimsan):</strong> Kuwani waa biraha sida toos ah loogu talagalay
+                    inay qabtaan tension-ka ka dhasha foorarka (Bending).</p>
+
+                <p><strong><i class="fas fa-cogs" style="color: var(--primary); margin-right: 8px;"></i>Sidee u
+                        shaqeeyaan?</strong></p>
                 <p>Marka culays la saaro slab-ka:</p>
                 <ul>
                     <li>Wuxuu bilaabaa bending.</li>
                     <li>Qaybta sare compression (cadaadis) ayaa ka dhasha.</li>
                     <li>Qaybta hoose tension (jiidasho) ayaa iyana ka dhasha.</li>
                 </ul>
-                <p>Concrete-kuna ma qaadi karo tension. Halkaan ayay main reinforcement muhiim ka noqdaan. Waxayna raacaan jihada slab-ka uu bending-ka u sameenayo (short span).</p>
+                <p>Concrete-kuna ma qaadi karo tension. Halkaan ayay main reinforcement muhiim ka noqdaan. Waxayna
+                    raacaan jihada slab-ka uu bending-ka u sameenayo (short span).</p>
 
-                <p><strong><i class="fas fa-project-diagram" style="color: var(--primary); margin-right: 8px;"></i>Distribution Bars (Biraha Kala Qaybinta):</strong> Waa biraha kaabaya main bars-ka, sidoo kalana waxaa loo yaqaanaa <em>secondary reinforcement</em>.</p>
+                <p><strong><i class="fas fa-project-diagram"
+                            style="color: var(--primary); margin-right: 8px;"></i>Distribution Bars (Biraha Kala
+                        Qaybinta):</strong> Waa biraha kaabaya main bars-ka, sidoo kalana waxaa loo yaqaanaa
+                    <em>secondary reinforcement</em>.
+                </p>
                 <ul>
                     <li>Waxay u socdaan jihada ka soo horjeeda main bars-ka.</li>
                     <li>Badanaa waa ka yar yihiin main bars-ka.</li>
@@ -286,22 +407,33 @@
                     <li>Waxay ka hortagaan dildilaac (cracks), waana <em>anti-crack bars</em>.</li>
                 </ul>
 
-                <div style="background-color: var(--bg); border: 1px dashed var(--border); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
-                    <h4 style="margin-top: 0;"><i class="fas fa-compress-arrows-alt" style="color: var(--primary); margin-right: 8px;"></i>Si Kooban</h4>
+                <div
+                    style="background-color: var(--bg); border: 1px dashed var(--border); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                    <h4 style="margin-top: 0;"><i class="fas fa-compress-arrows-alt"
+                            style="color: var(--primary); margin-right: 8px;"></i>Si Kooban</h4>
                     <div style="display: inline-block; text-align: left;">
-                        <span style="color: var(--primary);"><i class="fas fa-arrow-right" style="margin-right: 8px;"></i><strong>Main bars:</strong></span> Waa biraha culayska qaada.<br>
-                        <span style="color: var(--primary);"><i class="fas fa-project-diagram" style="margin-right: 8px;"></i><strong>Distribution bars:</strong></span> Waa biraha caawiya Main Bars ee ka hortaga cracks-ka.
+                        <span style="color: var(--primary);"><i class="fas fa-arrow-right"
+                                style="margin-right: 8px;"></i><strong>Main bars:</strong></span> Waa biraha culayska
+                        qaada.<br>
+                        <span style="color: var(--primary);"><i class="fas fa-project-diagram"
+                                style="margin-right: 8px;"></i><strong>Distribution bars:</strong></span> Waa biraha
+                        caawiya Main Bars ee ka hortaga cracks-ka.
                     </div>
                 </div>
 
                 <hr style="margin: 40px 0; border-color: var(--border);">
 
-                <h3>2. Two-Way Slab</h3>
-                <p>Waa slab uu culaysku u gudbo laba jiho (two directions), taasoo ka dhigan in culayska uu u kala fido dhinaca dhererka iyo ballaca labadaba.</p>
-                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si fudud:</strong> Waa slab culayskiisu u socdo laba direction.</p>
+                <h3 id="section-twoway">2. Two-Way Slab</h3>
+                <p>Waa slab uu culaysku u gudbo laba jiho (two directions), taasoo ka dhigan in culayska uu u kala fido
+                    dhinaca dhererka iyo ballaca labadaba.</p>
+                <p><strong><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i>Si
+                        fudud:</strong> Waa slab culayskiisu u socdo laba direction.</p>
 
-                <div style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
-                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>Two Way Slab</strong> hadii: <strong>Ly &divide; Lx &lt; 2</strong></p>
+                <div
+                    style="background-color: var(--card-bg); padding: 20px; border-left: 4px solid var(--primary); border-radius: 4px; margin-bottom: 20px;">
+                    <p style="margin: 0; font-size: 1.1em;">Slab-ka wuxuu Noqonayaa <strong>Two Way Slab</strong> hadii:
+                        <strong>Ly &divide; Lx &lt; 2</strong>
+                    </p>
                 </div>
 
                 <div class="img-container">
@@ -309,14 +441,16 @@
                     <img src="assets/images/two-way-slab.png" alt="Two Way Slab Diagram" class="zoomable-img">
                 </div>
 
-                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu Culayska u gudbiyo (Load Behavior)</h4>
+                <h4><i class="fas fa-weight-hanging" style="color: var(--primary); margin-right: 10px;"></i>Sida uu
+                    Culayska u gudbiyo (Load Behavior)</h4>
                 <ul>
                     <li>Culayska slab-ka saran wuxuu u kala baxaa labada jiho.</li>
                     <li>Waxaa qaada beams-ka ku wareegsan.</li>
                     <li>Ugu dambayn wuxuu culayska gaarayaa foundation-ka.</li>
                 </ul>
 
-                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka Birta u taalo ama loo dhigo)</h4>
+                <h4><i class="fas fa-bars" style="color: var(--primary); margin-right: 10px;"></i>Reinforcement (Qaabka
+                    Birta u taalo ama loo dhigo)</h4>
                 <p>Two way slab waxaa sidoo kale lagu gartaa:</p>
                 <ul>
                     <li>Main reinforcement laba jiho ayuu u socdaa.</li>
@@ -326,24 +460,33 @@
 
                 <hr style="margin: 40px 0; border-color: var(--border);">
 
-                <h3>3. Flat Slab</h3>
-                <p>Ma lahan beams (ama waa yar yihiin). Si toos ah ayuu u saaranyahay columns. Waxaana badanaa loo isticmaalaa dhismayaasha casriga ah.</p>
+                <h3 id="section-flat">3. Flat Slab</h3>
+                <p>Ma lahan beams (ama waa yar yihiin). Si toos ah ayuu u saaranyahay columns. Waxaana badanaa loo
+                    isticmaalaa dhismayaasha casriga ah.</p>
 
                 <h3>4. Hollow / Ribbed Slab</h3>
-                <p>Waa Slab leh tunnels (godad) si loo dhimo miisaanka slab-ka iyada oo aysan wax saameyn ah ku yeelan xooggiisa.</p>
-                <p>Waxaa badanaa loo isticmaalaa dhismayaasha dabaqyada badan (multi-story buildings) sababtoo ah waxay fududeysaa culayska saaran columns-ka iyo foundations-ka.</p>
+                <p>Waa Slab leh tunnels (godad) si loo dhimo miisaanka slab-ka iyada oo aysan wax saameyn ah ku yeelan
+                    xooggiisa.</p>
+                <p>Waxaa badanaa loo isticmaalaa dhismayaasha dabaqyada badan (multi-story buildings) sababtoo ah waxay
+                    fududeysaa culayska saaran columns-ka iyo foundations-ka.</p>
 
                 <hr style="margin: 40px 0; border-color: var(--border);">
 
-                <h2><i class="fas fa-arrows-alt-v" style="color: var(--primary); margin-right: 10px;"></i>Dhumucda Slab-ka (Thickness) - Caadi ahaan: 100mm &ndash; 200mm</h2>
+                <h2 id="section-thickness"><i class="fas fa-arrows-alt-v"
+                        style="color: var(--primary); margin-right: 10px;"></i>Dhumucda Slab-ka (Thickness) - Caadi
+                    ahaan: 100mm &ndash; 200mm</h2>
                 <p>Waxayna ku xiran tahay:</p>
                 <ul class="custom-icons">
-                    <li><i class="fas fa-balance-scale" style="color: var(--primary); margin-right: 8px;"></i>Culayska</li>
-                    <li><i class="fas fa-ruler-horizontal" style="color: var(--primary); margin-right: 8px;"></i>Dhererka (span)</li>
-                    <li><i class="fas fa-shapes" style="color: var(--primary); margin-right: 8px;"></i>Nooca slab-ka.</li>
+                    <li><i class="fas fa-balance-scale" style="color: var(--primary); margin-right: 8px;"></i>Culayska
+                    </li>
+                    <li><i class="fas fa-ruler-horizontal"
+                            style="color: var(--primary); margin-right: 8px;"></i>Dhererka (span)</li>
+                    <li><i class="fas fa-shapes" style="color: var(--primary); margin-right: 8px;"></i>Nooca slab-ka.
+                    </li>
                 </ul>
             </div>
 
+            <!-- Article Footer: Share + Back -->
             <div class="article-footer">
                 <div class="back-to-blog-wrapper">
                     <a href="/blog" class="btn btn-primary back-to-blog-bottom">
@@ -353,26 +496,187 @@
                 <div class="social-share">
                     <span class="share-label">Share this article:</span>
                     <div class="share-buttons">
-                        <a href="#" class="social-share-btn share-facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-share-btn share-whatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-share-btn share-telegram" aria-label="Share on Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a id="share-facebook" href="#" class="social-share-btn share-facebook"
+                            aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a id="share-whatsapp" href="#" class="social-share-btn share-whatsapp"
+                            aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a id="share-telegram" href="#" class="social-share-btn share-telegram"
+                            aria-label="Share on Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a id="share-copy" href="#" onclick="copyLink(event)" class="social-share-btn"
+                            style="background:#6366f1;" aria-label="Copy Link"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
             </div>
-            </div>
+
         </article>
+
+        <!-- ═══════════════════════════════════════
+             COMMENT SECTION
+        ═══════════════════════════════════════ -->
+        <section id="comments-section"
+            style="padding: 30px 0; border-top: 1px solid var(--border); background: radial-gradient(circle at top right, rgba(34,197,94,0.04), transparent 50%);">
+            <div class="container" style="max-width: 750px; margin: 0 auto;">
+
+                <!-- Header -->
+                <div style="text-align:center; margin-bottom:30px;">
+                    <h2 style="font-size:var(--text-3xl); font-weight:800; margin-bottom:10px;">
+                        <i class="fas fa-comments" style="color:var(--primary); margin-right:12px;"></i>Faallooyinka
+                        &amp; Su'aalaha
+                    </h2>
+                    <p style="color:var(--muted); font-size:1rem;">Ra'yigaaga nala wadaag iyo Hadii aad su'aal qabtid
+                    </p>
+                </div>
+
+                <!-- Existing Comments Display -->
+                <div id="comments-list" style="margin-bottom:50px; display:flex; flex-direction:column; gap:20px;">
+
+                    <!-- Empty State for Comments (Hidden per user request) -->
+                    <div id="no-comments-state" style="display: none; text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; border: 1px dashed var(--border); transition: all 0.3s ease;">
+                        <i class="far fa-comment-dots" style="font-size: 3rem; color: var(--border); margin-bottom: 15px; display: block;"></i>
+                        <p style="color: var(--muted); font-size: 1.05rem; margin: 0;">Ma jiraan wax faallooyin ah illaa iyo hadda. Noqo qofka ugu horreeya ee fikrad ku dara!</p>
+                    </div>
+
+                    <!-- TEMPLATE: Use this block to add real comments easily. (Keep display:none until needed) -->
+                    <div class="comment-card" style="display: none; background:var(--card);border:1px solid var(--border);border-radius:20px;padding:25px;position:relative;transition:box-shadow 0.3s ease;">
+                        <div style="display:flex;gap:16px;">
+                            <div style="width:46px;height:46px;background:linear-gradient(135deg,var(--primary),#16a34a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:1rem;flex-shrink:0;">AH</div>
+                            <div style="flex:1;">
+                                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                                    <div>
+                                        <strong style="font-size:1.05rem;line-height:1.2;display:block;margin-bottom:4px;color:var(--text);">Magaca Qofka</strong>
+                                        <div style="font-size:0.82rem;color:var(--muted);"><i class="fas fa-calendar-alt" style="margin-right:5px;color:var(--primary);"></i>Taariikhda</div>
+                                    </div>
+                                    <!-- Only include the Verified badge if you truly verified their email -->
+                                    <!-- <span style="background:rgba(34,197,94,0.1);color:var(--primary);padding:4px 12px;border-radius:50px;font-size:0.8rem;font-weight:700;"><i class="fas fa-check-circle" style="margin-right:4px;"></i>Verified</span> -->
+                                </div>
+                                <p style="margin:0;line-height:1.75;color:var(--text);font-size:0.97rem;">"Ku qor Message-ka / Faallada halkan"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Comment Form -->
+                <div
+                    class="comment-form-container">
+                    <!-- Top accent line -->
+                    <div
+                        style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:3px;background:linear-gradient(90deg,transparent,var(--primary),transparent);border-radius:0 0 8px 8px;">
+                    </div>
+
+                    <h3 style="margin:0 0 8px;font-size:1.4rem;font-weight:800;text-align:center;"><i class="fas fa-pen"
+                            style="color:var(--primary);margin-right:10px;"></i>Faallo Ku Dar</h3>
+                    <p style="text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:30px;">Faalladaadu waa
+                        noo muhiim!</p>
+
+                    <form id="comment-form" action="https://formspree.io/f/xanypboe" method="POST">
+                        <input type="hidden" name="type" value="Blog Comment - Slab Article">
+                        <input type="hidden" name="_subject" value="New Blog Comment: Waa Maxay Slab?">
+
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                            <div>
+                                <label
+                                    style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:7px;color:var(--text);">Magacaaga
+                                    <span style="color:#ef4444;">*</span></label>
+                                <input type="text" name="name" required placeholder="Tusaale: Maxamed Cali"
+                                    style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:var(--font);transition:border-color 0.3s,box-shadow 0.3s;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--primary)';this.style.boxShadow='0 0 0 3px rgba(34,197,94,0.12)'"
+                                    onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                            </div>
+                            <div>
+                                <label
+                                    style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:7px;color:var(--text);">Email
+                                    (Ikhtiyaari)</label>
+                                <input type="email" name="email" placeholder="email@tusaale.com"
+                                    style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:var(--font);transition:border-color 0.3s,box-shadow 0.3s;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--primary)';this.style.boxShadow='0 0 0 3px rgba(34,197,94,0.12)'"
+                                    onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:22px;">
+                            <label
+                                style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:7px;color:var(--text);">Faalladaada
+                                <span style="color:#ef4444;">*</span></label>
+                            <textarea name="comment" required rows="5" placeholder="Qor faallada ama su'aasha..."
+                                style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:var(--font);resize:vertical;transition:border-color 0.3s,box-shadow 0.3s;box-sizing:border-box;"
+                                onfocus="this.style.borderColor='var(--primary)';this.style.boxShadow='0 0 0 3px rgba(34,197,94,0.12)'"
+                                onblur="this.style.borderColor='var(--border)';this.style.boxShadow='none'"></textarea>
+                        </div>
+
+                        <!-- Topic Selector -->
+                        <div style="margin-bottom:22px;">
+                            <label
+                                style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:10px;color:var(--text);">Mowduuca
+                                Faalladaada</label>
+                            <div style="display:flex;flex-wrap:wrap;gap:10px;" id="topic-chips">
+                                <label style="cursor:pointer;">
+                                    <input type="radio" name="topic" value="Su'aal" style="display:none;"
+                                        onchange="selectTopic(this)">
+                                    <span class="topic-chip"
+                                        style="padding:7px 18px;border-radius:50px;border:1px solid var(--border);font-size:0.88rem;font-weight:600;background:var(--bg);color:var(--text);transition:all 0.25s;display:inline-block;"><i
+                                            class="fas fa-question-circle"
+                                            style="margin-right:6px;color:var(--primary);"></i>Su'aal</span>
+                                </label>
+                                <label style="cursor:pointer;">
+                                    <input type="radio" name="topic" value="Faallo" style="display:none;"
+                                        onchange="selectTopic(this)">
+                                    <span class="topic-chip"
+                                        style="padding:7px 18px;border-radius:50px;border:1px solid var(--border);font-size:0.88rem;font-weight:600;background:var(--bg);color:var(--text);transition:all 0.25s;display:inline-block;"><i
+                                            class="fas fa-comment"
+                                            style="margin-right:6px;color:var(--primary);"></i>Faallo</span>
+                                </label>
+                                <label style="cursor:pointer;">
+                                    <input type="radio" name="topic" value="Wax baro" style="display:none;"
+                                        onchange="selectTopic(this)">
+                                    <span class="topic-chip"
+                                        style="padding:7px 18px;border-radius:50px;border:1px solid var(--border);font-size:0.88rem;font-weight:600;background:var(--bg);color:var(--text);transition:all 0.25s;display:inline-block;"><i
+                                            class="fas fa-graduation-cap"
+                                            style="margin-right:6px;color:var(--primary);"></i>Wax baro</span>
+                                </label>
+                                <label style="cursor:pointer;">
+                                    <input type="radio" name="topic" value="Kale" style="display:none;"
+                                        onchange="selectTopic(this)">
+                                    <span class="topic-chip"
+                                        style="padding:7px 18px;border-radius:50px;border:1px solid var(--border);font-size:0.88rem;font-weight:600;background:var(--bg);color:var(--text);transition:all 0.25s;display:inline-block;"><i
+                                            class="fas fa-ellipsis-h"
+                                            style="margin-right:6px;color:var(--primary);"></i>Kale</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="comment-submit-btn"
+                            style="width:100%;padding:16px;background:linear-gradient(135deg,var(--primary),#16a34a);color:white;border:none;border-radius:14px;font-weight:700;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.3s ease;box-shadow:0 8px 20px -5px rgba(34,197,94,0.45);">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Dir Faalladaada</span>
+                        </button>
+
+                        <p style="text-align:center;font-size:0.8rem;color:var(--muted);margin-top:14px;"><i
+                                class="fas fa-shield-alt" style="color:var(--primary);margin-right:5px;"></i>Akoonku waa mid shaqsi, lama wadaago macluumaadkaaga cid kale.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
 
         <!-- Related Posts Section -->
         <section class="related-posts" style="background-color: transparent; border-top: none; padding-top: 40px;">
             <div class="container" style="max-width: 800px; margin: 0 auto;">
-                <h2 style="font-size: var(--text-2xl); margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 10px;"><i class="fas fa-book-reader" style="color: var(--primary); margin-right: 10px;"></i>Aqri Sidoo Kale (Related Posts)</h2>
-                <div style="text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; border: 1px dashed var(--border);">
-                    <i class="fas fa-folder-open" style="font-size: 2.5rem; color: var(--muted); margin-bottom: 15px; display: block;"></i>
-                    <p style="color: var(--muted); font-size: 1.1rem; margin: 0;">Ma jiraan maqaallo kale oo la xiriira qaybta <strong>Rcc Design</strong> hadda.</p>
+                <h2
+                    style="font-size: var(--text-2xl); margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
+                    <i class="fas fa-book-reader" style="color: var(--primary); margin-right: 10px;"></i>Aqri Sidoo Kale
+                    (Related Posts)
+                </h2>
+                <div
+                    style="text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; border: 1px dashed var(--border);">
+                    <i class="fas fa-folder-open"
+                        style="font-size: 2.5rem; color: var(--muted); margin-bottom: 15px; display: block;"></i>
+                    <p style="color: var(--muted); font-size: 1.1rem; margin: 0;">Ma jiraan maqaallo kale oo la xiriira
+                        qaybta <strong>Rcc Design</strong> hadda.</p>
                 </div>
             </div>
         </section>
     </main>
+
 
     <footer>
         <div class="container">
@@ -403,7 +707,7 @@
             const modal = document.getElementById("imageLightbox");
             const modalImg = document.getElementById("lightboxImg");
             const closeBtn = document.getElementById("closeLightbox");
-            
+
             // Allow all zoomable images to open the lightbox
             const zoomImages = document.querySelectorAll(".zoomable-img");
             zoomImages.forEach(img => {

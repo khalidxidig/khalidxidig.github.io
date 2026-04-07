@@ -106,21 +106,27 @@ function initProfileModal() {
         const profileSrc = assetBase + 'assets/images/khalid.jpeg';
         const modalHTML = `
             <div id="profileModal" class="profile-modal">
-              <div class="profile-modal-content">
+              <div class="profile-modal-content premium-modal">
                 <button class="profile-modal-close" aria-label="Close Modal">&times;</button>
-                <div style="display: flex; justify-content: center; width: 100%;">
-                    <img src="${profileSrc}" class="profile-modal-img" alt="Khalid Mohamed Ali Profile">
+                <div class="modal-wrapper">
+                    <div class="modal-visual-side">
+                        <div class="profile-img-glow">
+                             <img src="${profileSrc}" class="profile-modal-img" alt="Khalid Mohamed Ali">
+                        </div>
+                    </div>
+                    <div class="modal-content-side">
+                        <h2 class="profile-modal-name">Khalid Mohamed Ali</h2>
+                        <p class="profile-modal-title">Civil Engineer & Architectural Designer</p>
+                        <div class="profile-modal-info">
+                            <p><strong>Welcome to my portfolio!</strong></p>
+                            <p>I'm Khalid, an architectural designer and civil engineer focused on crafting modern, functional, and safe spaces that turn your vision into reality.</p>
+                        </div>
+                        <div class="modal-cta-group">
+                            <a href="/project" class="modal-btn btn-primary">View My Work</a>
+                            <a href="/contact" class="modal-btn btn-outline">Get In Touch</a>
+                        </div>
+                    </div>
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <h2 class="profile-modal-name">Khalid Mohamed Ali</h2>
-                    <p class="profile-modal-title">Civil Engineer & Architectural Designer</p>
-                </div>
-                <p class="profile-modal-desc">
-                    <strong>Welcome to my portfolio!</strong><br><br>
-                    I'm Khalid, a dedicated architectural designer and civil engineer with a passion for bringing ideas to life through modern and functional spaces. 
-                    From precise 2D planning to stunning 3D visualization and robust structural analysis, I'm here to craft your vision into reality.<br><br>
-                    <em>Let's build something truly exceptional together.</em>
-                </p>
               </div>
             </div>
         `;
@@ -393,6 +399,178 @@ function initSocialSharing() {
     });
 }
 
+// --- BLOG POST INTERACTIVE FEATURES ---
+function initBlogFeatures() {
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress-bar');
+    if (progressBar) {
+        const article = document.querySelector('.article-content');
+        const updateProgress = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const articleTop = article ? article.offsetTop : 0;
+            const articleHeight = article ? article.scrollHeight : 0;
+            const winHeight = window.innerHeight;
+            const maxScroll = articleTop + articleHeight - winHeight;
+            const percent = Math.min(100, Math.max(0, (scrollTop - articleTop) / maxScroll * 100));
+            progressBar.style.width = percent + '%';
+        };
+        window.addEventListener('scroll', updateProgress);
+        updateProgress();
+    }
+
+    // Estimated read time
+    const readTimeEl = document.getElementById('read-time-val');
+    if (readTimeEl) {
+        const article = document.querySelector('.article-content');
+        if (article) {
+            const words = article.innerText.trim().split(/\s+/).length;
+            const minutes = Math.ceil(words / 200);
+            readTimeEl.textContent = minutes;
+        }
+    }
+
+    // Like button handling (Global counter via Counter API)
+    const likeBtn = document.getElementById('like-btn');
+    const likeCountEl = document.getElementById('like-count');
+    if (likeBtn && likeCountEl) {
+        let pageKey = window.location.pathname.split('/').pop().replace('.html', '').toLowerCase();
+        if (!pageKey || pageKey === '') pageKey = 'home';
+        
+        const namespace = 'khalidmohamed.me';
+        const storageKey = `liked_${pageKey}`;
+        let hasLiked = localStorage.getItem(storageKey) === 'true';
+
+        const icon = document.getElementById('like-icon');
+        // If already liked, indicate visually
+        if (hasLiked && icon) {
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            icon.style.color = '#3b82f6'; // Blue thumbs up
+        }
+
+        // 1. Fetch initial global count
+        fetch(`https://api.counterapi.dev/v1/${namespace}/${pageKey}`)
+            .then(res => {
+                if (!res.ok) {
+                    if (res.status === 400 || res.status === 404) return { count: 0 };
+                    throw new Error('Network error');
+                }
+                return res.json();
+            })
+            .then(data => {
+                likeCountEl.textContent = data.count || 0;
+            })
+            .catch((err) => {
+                // Graceful Fallback: If Adblocker blocks the global API, use a local seamless fallback
+                const fallbackKey = `offline_count_${pageKey}`;
+                let offlineCount = parseInt(localStorage.getItem(fallbackKey), 10);
+                if (isNaN(offlineCount)) {
+                    offlineCount = Math.floor(Math.random() * 20) + 5; // generate a fake start
+                    localStorage.setItem(fallbackKey, offlineCount);
+                }
+                likeCountEl.textContent = offlineCount;
+                likeBtn.setAttribute('data-offline', 'true');
+            });
+
+        // 2. Handle Click (Toggle Like)
+        likeBtn.addEventListener('click', () => {
+            // Trigger pulse animation
+            if (icon) {
+                icon.classList.remove('pulse');
+                void icon.offsetWidth; // trigger reflow
+                icon.classList.add('pulse');
+                setTimeout(() => icon.classList.remove('pulse'), 600);
+            }
+
+            if (!hasLiked) {
+                // Action: LIKE (+1)
+                hasLiked = true;
+                localStorage.setItem(storageKey, 'true');
+                
+                if (icon) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#3b82f6'; // Blue solid
+                }
+                
+                let current = parseInt(likeCountEl.textContent, 10);
+                if (isNaN(current)) current = 0;
+                likeCountEl.textContent = current + 1;
+                if (likeBtn.getAttribute('data-offline') === 'true') {
+                    localStorage.setItem(`offline_count_${pageKey}`, current + 1);
+                }
+
+                fetch(`https://api.counterapi.dev/v1/${namespace}/${pageKey}/up`)
+                    .then(res => res.json())
+                    .then(data => { likeCountEl.textContent = data.count; })
+                    .catch(err => console.error("Counter API err", err));
+
+            } else {
+                // Action: UNLIKE (-1)
+                hasLiked = false;
+                localStorage.removeItem(storageKey);
+                
+                if (icon) {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = 'var(--text)'; // Regular outline
+                }
+                
+                let current = parseInt(likeCountEl.textContent, 10);
+                if (isNaN(current)) current = 0;
+                let nextCount = current > 0 ? current - 1 : 0;
+                likeCountEl.textContent = nextCount;
+                if (likeBtn.getAttribute('data-offline') === 'true') {
+                    localStorage.setItem(`offline_count_${pageKey}`, nextCount);
+                }
+
+                fetch(`https://api.counterapi.dev/v1/${namespace}/${pageKey}/down`)
+                    .then(res => res.json())
+                    .then(data => { likeCountEl.textContent = data.count; })
+                    .catch(err => console.error("Counter API err", err));
+            }
+        });
+    }
+
+    // Copy link functionality
+    window.copyLink = function(e) {
+        e.preventDefault();
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('Link copied to clipboard!');
+        }).catch(() => {
+            showToast('Failed to copy link.');
+        });
+    };
+
+    // Topic chip selection styling
+    window.selectTopic = function(input) {
+        const chips = document.querySelectorAll('.topic-chip');
+        chips.forEach(chip => chip.style.background = 'var(--bg)');
+        const chip = input.parentElement?.querySelector('.topic-chip');
+        if (chip) {
+            chip.style.background = 'var(--primary)';
+            chip.style.color = 'white';
+        }
+    };
+
+    // Handle TOC target highlight animations (allows replay on repeated clicks)
+    const tocLinks = document.querySelectorAll('#toc-box a[href^="#"]');
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.classList.remove('highlight-target');
+                void targetElement.offsetWidth; // Trigger reflow to restart animation
+                targetElement.classList.add('highlight-target');
+            }
+        });
+    });
+}
+
+
 /* --- LOCAL DEVELOPMENT LINK FIX --- */
 function initLocalFix() {
     if (window.location.protocol === 'file:') {
@@ -424,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initImageProtection();
     initBlogSearch();
     initSocialSharing();
+    initBlogFeatures();
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');

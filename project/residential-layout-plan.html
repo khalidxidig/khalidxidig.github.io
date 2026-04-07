@@ -285,12 +285,133 @@
                 }
             </style>
 
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <h2>Reviews-ka Macamiisha</h2>
+            </div>
+
+            <div class="reviews-slider-outer">
+                <div class="reviews-slider-inner">
+                    <div class="slide-item active">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Aad ayaan ula dhacay sida loo habeeyay qolalka iyo marinnada. Waa injineer dhab ahaan garanaya waxa uu qabanayo iyo sida booska loo isticmaalo."</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">FC</div>
+                                <div class="rev-info-center">
+                                    <h4>Fartuun Cali <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Home Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-item">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Layout-ku waa mid aad u fudud oo haddana casri ah. Aad ayaan u recommend gareynayaa Khalid qof kasta oo raba guri qurxoon."</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">MB</div>
+                                <div class="rev-info-center">
+                                    <h4>Maxamed Barre <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Mogadishu, Somalia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-item">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Shaqadiisu waa mid nadiif ah, wuxuuna na siiyey talooyin aad u muhiim ah oo ku saabsan dhismaha gurigayaga cusub."</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">UD</div>
+                                <div class="rev-info-center">
+                                    <h4>Ubax Daahir <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="slider-arrow arrow-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow arrow-next"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slider-dots"></div>
+            </div>
+
+            <div class="review-form-wrapper">
+                <h3>Nala wadaag ra'yigaaga</h3>
+                <form action="https://formspree.io/f/xanypboe" method="POST">
+                    <input type="hidden" name="project" value="Residential Layout Plan">
+                    
+                    <div class="star-rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div class="form-group-rev">
+                        <label for="rev-name">Magacaaga</label>
+                        <input type="text" id="rev-name" name="name" placeholder="Tusaale: Maxamed Cali" required>
+                    </div>
+                    
+                    <div class="form-group-rev">
+                        <label for="rev-comment">Ra'yigaaga</label>
+                        <textarea id="rev-comment" name="comment" rows="4" placeholder="Maxaad ka dhihi lahayd shaqadan?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-rev">
+                        <span>Submit Review</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="project-gallery" style="padding-top: 0;">
+        <div class="container">
             <div class="project-navigation"
                 style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 10px; flex-wrap: wrap;">
                 <a href="/project" class="btn btn-outline">← Back to Projects</a>
             </div>
         </div>
     </section>
+
 
     <footer>
         <div class="container">
@@ -308,6 +429,7 @@
     <a href="https://wa.me/252619795567" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <script src="../assets/main.js"></script>
     <script src="../assets/foundation.js"></script>
+    <script src="../assets/reviews.js"></script>
 </body>
 
 </html>

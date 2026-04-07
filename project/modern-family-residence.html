@@ -265,20 +265,124 @@
         }
     </style>
 
-    <section class="project-gallery">
+    <section class="reviews-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Project Gallery</h2>
-                <div class="about-text">
-                    <p>Detailed architectural floor plans</p>
-                </div>
+            <div class="reviews-header">
+                <h2>Reviews-ka Macamiisha</h2>
             </div>
-            <div class="gallery-grid" style="display: flex; justify-content: center;">
-                <div class="gitem" style="max-width: 1000px; width: 100%;">
-                    <img src="../assets/2d/Modern Family Residence – 15×20 House Plan.jpg"
-                        alt="Modern Family Residence – 15×20 House Plan">
+
+            <div class="reviews-slider-outer">
+                <div class="reviews-slider-inner">
+                    <div class="slide-item active">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Nashqad dhab ahaan casri ah. Aad ayaan ugu qancay sida loo agaasimay booska yar ee 15x20. Shaqo heer sare ah!"</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">AF</div>
+                                <div class="rev-info-center">
+                                    <h4>Eng. Ahmed Farax <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Mogadishu, Somalia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-item">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Khalid waa qof karti badan. Gurigeyga wuxuu u sameeyay plan aad u qurux badan. Aad ayaan ugu mahadcelinayaa."</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">SM</div>
+                                <div class="rev-info-center">
+                                    <h4>Samira Mohamed <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Hargeisa, Somalia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-item">
+                        <div class="slider-card">
+                            <i class="fas fa-quote-left rev-quote-center"></i>
+                            <div class="rev-stars-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="rev-content-large">"Shaqo hufan iyo xilli ku habboon. Xiddigaha oo dhan ayuu mudan yahay. Waa injineer dhalinyaro ah oo mustaqbal leh."</p>
+                            <div class="rev-footer-center">
+                                <div class="rev-avatar-large">AH</div>
+                                <div class="rev-info-center">
+                                    <h4>Abdiwali Hassan <i class="fas fa-check-circle verified-badge"></i></h4>
+                                    <p>Garowe, Somalia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Controls -->
+                <button class="slider-arrow arrow-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow arrow-next"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slider-dots"></div>
             </div>
+
+            <div class="review-form-wrapper">
+                <h3>Nala wadaag ra'yigaaga</h3>
+                <form action="https://formspree.io/f/xanypboe" method="POST">
+                    <input type="hidden" name="project" value="Modern Family Residence">
+                    
+                    <div class="star-rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div class="form-group-rev">
+                        <label for="rev-name">Magacaaga</label>
+                        <input type="text" id="rev-name" name="name" placeholder="Tusaale: Maxamed Cali" required>
+                    </div>
+                    
+                    <div class="form-group-rev">
+                        <label for="rev-comment">Ra'yigaaga</label>
+                        <textarea id="rev-comment" name="comment" rows="4" placeholder="Maxaad ka dhihi lahayd shaqadan?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-rev">
+                        <span>Submit Review</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-gallery" style="padding-top: 0;">
+        <div class="container">
             <div class="project-navigation"
                 style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 10px; flex-wrap: wrap;">
                 <a href="/project/coffee-shop-interior" class="btn btn-outline">← Previous Project</a>
@@ -287,6 +391,7 @@
             </div>
         </div>
     </section>
+
 
     <footer>
         <div class="container">
@@ -304,6 +409,7 @@
     <a href="https://wa.me/252619795567" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <script src="../assets/main.js"></script>
     <script src="../assets/foundation.js"></script>
+    <script src="../assets/reviews.js"></script>
 </body>
 
 </html>
