@@ -753,6 +753,93 @@ function initCounters() {
     });
 }
 
+/* --- AJAX FORM SUBMISSION --- */
+function initAjaxForms() {
+    const forms = document.querySelectorAll('form[action^="https://formspree.io"]');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit';
+            
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Dirayaa...';
+                submitBtn.disabled = true;
+            }
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success!
+                    form.reset();
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '✅ Waa la diray!';
+                        submitBtn.style.backgroundColor = '#16a34a'; // Green success
+                        submitBtn.style.borderColor = '#16a34a';
+                        
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalBtnHtml;
+                            submitBtn.disabled = false;
+                            submitBtn.style.backgroundColor = '';
+                            submitBtn.style.borderColor = '';
+                        }, 5000);
+                    }
+                    let successMessage = '✅ Waad ku mahadsan tahay! Fariintaadu way i soo gaartay, dhawaan ayaan ku soo jawaabi doonaa.';
+                    
+                    if (form.id === 'comment-form') {
+                        successMessage = '✅ Mahadsanid! Faalladaadu way i soo gaartay.';
+                    } else if (form.closest('.review-form-wrapper')) {
+                        successMessage = "✅ Waad ku mahadsan tahay ra'yigaaga iyo qiimayntaada!";
+                    }
+
+                    if (typeof showToast === 'function') {
+                        showToast(successMessage);
+                    } else {
+                        alert(successMessage);
+                    }
+                } else {
+                    // Handle server errors
+                    const result = await response.json();
+                    let errorMsg = 'Cillad ayaa dhacday.';
+                    if (Object.hasOwn(result, 'errors')) {
+                        errorMsg = result.errors.map(error => error.message).join(", ");
+                    }
+                    if (typeof showToast === 'function') {
+                        showToast('❌ Cillad: ' + errorMsg);
+                    } else {
+                        alert('❌ Cillad: ' + errorMsg);
+                    }
+                    if (submitBtn) {
+                        submitBtn.innerHTML = originalBtnHtml;
+                        submitBtn.disabled = false;
+                    }
+                }
+            } catch (error) {
+                if (typeof showToast === 'function') {
+                    showToast('❌ Cillad khadka ah! Fadlan isku day markale.');
+                } else {
+                    alert('❌ Cillad khadka ah! Fadlan isku day markale.');
+                }
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalBtnHtml;
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+    });
+}
+
 /* --- MAIN INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('js-loaded');
@@ -770,6 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSocialSharing();
     initBlogFeatures();
     initCounters();
+    initAjaxForms();
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
