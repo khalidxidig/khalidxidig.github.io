@@ -366,6 +366,135 @@ function initBlogSearch() {
     }
 }
 
+/* --- BLOG SORTING --- */
+function initBlogSort() {
+    const dropdown = document.getElementById('blog-sort-dropdown');
+    const trigger = document.getElementById('sort-trigger');
+    const menu = document.getElementById('sort-menu');
+    const options = document.querySelectorAll('.sort-option');
+    const blogGrid = document.querySelector('.blog-grid');
+    if (!dropdown || !blogGrid) return;
+
+    // Toggle menu
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+
+    // Handle Option Click
+    options.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Update active visual state
+            options.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            dropdown.classList.remove('open');
+
+            const criterion = this.getAttribute('data-value');
+            const blogCards = Array.from(document.querySelectorAll('.blog-card'));
+
+            blogCards.sort((a, b) => {
+                if (criterion === 'popular') {
+                    const viewsA = parseInt(a.getAttribute('data-views') || 0);
+                    const viewsB = parseInt(b.getAttribute('data-views') || 0);
+                    return viewsB - viewsA; // Descending
+                } else if (criterion === 'oldest') {
+                    const dateA = new Date(a.querySelector('.blog-date').textContent.trim());
+                    const dateB = new Date(b.querySelector('.blog-date').textContent.trim());
+                    return dateA - dateB;
+                } else { // newest (default)
+                    const dateA = new Date(a.querySelector('.blog-date').textContent.trim());
+                    const dateB = new Date(b.querySelector('.blog-date').textContent.trim());
+                    return dateB - dateA;
+                }
+            });
+
+            // Clear and Re-append cards in sorted order
+            blogCards.forEach(card => {
+                blogGrid.appendChild(card);
+            });
+        });
+    });
+}
+
+/* --- PROJECT SLIDER --- */
+function initProjectSlider() {
+    const grid = document.querySelector('.project-grid-zajel');
+    const prevBtn = document.querySelector('.zajel-nav-btn.prev');
+    const nextBtn = document.querySelector('.zajel-nav-btn.next');
+
+    if (!grid || !prevBtn || !nextBtn) return;
+
+    let isPaused = false;
+    let autoScrollInterval;
+
+    const getScrollAmount = () => {
+        const firstCard = grid.querySelector('.project-card-zajel');
+        return firstCard ? firstCard.offsetWidth + 30 : 400; // Card width + gap
+    };
+
+    const scrollNext = () => {
+        const amount = getScrollAmount();
+        // Check if we reached the end
+        if (grid.scrollLeft >= grid.scrollWidth - grid.offsetWidth - 10) {
+            grid.scrollLeft = 0; // Loop back to start
+        } else {
+            grid.scrollLeft += amount;
+        }
+    };
+
+    const scrollPrev = () => {
+        const amount = getScrollAmount();
+        if (grid.scrollLeft <= 5) {
+            grid.scrollLeft = grid.scrollWidth; // Go to end
+        } else {
+            grid.scrollLeft -= amount;
+        }
+    };
+
+    const startAutoScroll = () => {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(() => {
+            if (!isPaused) scrollNext();
+        }, 5000); // Scroll every 5 seconds
+    };
+
+    const stopAutoScroll = () => {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+    };
+
+    nextBtn.addEventListener('click', () => {
+        scrollNext();
+        startAutoScroll(); // Reset timer on manual click
+    });
+
+    prevBtn.addEventListener('click', () => {
+        scrollPrev();
+        startAutoScroll(); // Reset timer on manual click
+    });
+
+    // Pause functionality
+    grid.addEventListener('mouseenter', () => isPaused = true);
+    grid.addEventListener('mouseleave', () => isPaused = false);
+    
+    // Support for touch devices (optional but good)
+    grid.addEventListener('touchstart', () => isPaused = true);
+    grid.addEventListener('touchend', () => {
+        setTimeout(() => isPaused = false, 2000);
+    });
+
+    // Start auto-scroll
+    startAutoScroll();
+}
+
 /* --- BLOG SOCIAL SHARING --- */
 function initSocialSharing() {
     const shareButtons = document.querySelectorAll('.social-share-btn');
@@ -589,6 +718,41 @@ function initLocalFix() {
     }
 }
 
+/* --- COUNTER ANIMATION --- */
+function initCounters() {
+    const counters = document.querySelectorAll('.counter-anim');
+    if(counters.length === 0) return;
+    const speed = 100; // Counter animation speed
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-count');
+                
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
 /* --- MAIN INITIALIZATION --- */
 document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('js-loaded');
@@ -601,8 +765,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryCycling();
     initImageProtection();
     initBlogSearch();
+    initBlogSort();
+    initProjectSlider();
     initSocialSharing();
     initBlogFeatures();
+    initCounters();
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
