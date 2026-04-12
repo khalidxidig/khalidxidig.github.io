@@ -810,15 +810,10 @@ function initAjaxForms() {
                     }
                 } else {
                     // Handle server errors
-                    const result = await response.json();
-                    let errorMsg = 'Cillad ayaa dhacday.';
-                    if (Object.hasOwn(result, 'errors')) {
-                        errorMsg = result.errors.map(error => error.message).join(", ");
-                    }
                     if (typeof showToast === 'function') {
-                        showToast('❌ Cillad: ' + errorMsg);
+                        showToast('❌ Raalli ahow, fariintaadu ma bixin. Fadlan markale isku day.');
                     } else {
-                        alert('❌ Cillad: ' + errorMsg);
+                        alert('❌ Raalli ahow, fariintaadu ma bixin. Fadlan markale isku day.');
                     }
                     if (submitBtn) {
                         submitBtn.innerHTML = originalBtnHtml;
@@ -826,10 +821,11 @@ function initAjaxForms() {
                     }
                 }
             } catch (error) {
+                // Handle network errors
                 if (typeof showToast === 'function') {
-                    showToast('❌ Cillad khadka ah! Fadlan isku day markale.');
+                    showToast('❌ Raalli ahow, fariintaadu ma bixin. Fadlan markale isku day.');
                 } else {
-                    alert('❌ Cillad khadka ah! Fadlan isku day markale.');
+                    alert('❌ Raalli ahow, fariintaadu ma bixin. Fadlan markale isku day.');
                 }
                 if (submitBtn) {
                     submitBtn.innerHTML = originalBtnHtml;
