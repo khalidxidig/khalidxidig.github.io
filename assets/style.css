@@ -3097,6 +3097,7 @@ html.js-loaded .reveal.visible {
     color: var(--primary);
     line-height: 1.2;
     margin: 0;
+    white-space: nowrap;
 }
 
 .brand-title {
@@ -5263,7 +5264,7 @@ select.premium-input {
 
 .project-card-zajel {
     scroll-snap-align: start;
-    min-width: 360px;
+    min-width: unset; /* Let grid control the width */
     background: var(--card);
     border-radius: 16px;
     overflow: hidden;
@@ -5464,7 +5465,7 @@ select.premium-input {
 
 @media (max-width: 768px) {
     .project-grid-zajel {
-        grid-auto-columns: minmax(300px, 1fr);
+        grid-auto-columns: minmax(85vw, 1fr);
         gap: 20px;
     }
     
