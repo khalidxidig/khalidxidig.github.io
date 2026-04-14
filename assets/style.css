@@ -1446,13 +1446,37 @@ footer p {
     }
 
     .about-content p {
-        margin-bottom: 15px;
         line-height: 1.6;
-        font-size: 1rem;
-        text-align: left;
-        /* Keep text left-aligned for readability */
-        color: var(--text);
     }
+
+    .square-stats-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+        flex-wrap: wrap !important; /* fallback */
+    }
+
+    .square-stat-card {
+        width: 100% !important;
+        padding: 12px 8px !important;
+        margin: 0 !important;
+    }
+
+    .stats-banner {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px !important;
+        padding: 20px 15px !important;
+        margin: -30px auto 20px auto !important;
+    }
+
+    .stat-item {
+        min-width: 0 !important;
+        padding: 10px !important;
+    }
+
 
     .contact-container {
         grid-template-columns: 1fr;

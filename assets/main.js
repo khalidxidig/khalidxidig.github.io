@@ -731,13 +731,16 @@ function initCounters() {
                 const target = +counter.getAttribute('data-count');
                 const suffix = counter.getAttribute('data-suffix') || '';
                 
+                let count = 0;
+                // Calculate dynamic increment based on a total duration (~2 seconds)
+                // 2000ms / 20ms = 100 steps. 
+                const inc = target / 100;
+                
                 const updateCount = () => {
-                    const currentText = counter.innerText.replace(suffix, '');
-                    let count = parseFloat(currentText) || 0;
-                    const inc = target / speed;
+                    count += inc;
                     
                     if (count < target) {
-                        counter.innerText = Math.ceil(count + inc) + suffix;
+                        counter.innerText = Math.ceil(count) + suffix;
                         setTimeout(updateCount, 20);
                     } else {
                         counter.innerText = target + suffix;
