@@ -5678,6 +5678,30 @@ select.premium-input {
         line-height: 1.5;
         margin-bottom: 0;
     }
+
+    /* --- Project Info Bar Mobile Layout --- */
+    .project-info-bar {
+        padding: 15px 0 !important;
+    }
+    .info-grid {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        padding: 0 15px !important;
+    }
+    .info-item {
+        text-align: center;
+        flex: 1;
+    }
+    .info-item h4 {
+        font-size: 9px !important;
+        margin-bottom: 4px !important;
+    }
+    .info-item p {
+        font-size: 12px !important;
+        white-space: nowrap;
+    }
 }
 
 

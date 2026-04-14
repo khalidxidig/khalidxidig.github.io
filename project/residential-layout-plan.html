@@ -138,6 +138,29 @@
                     padding: 0 10px;
                 }
 
+                /* 2D Plan Gallery Fix */
+                .project-gallery .gallery-grid {
+                    grid-template-columns: 1fr !important;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+
+                .project-gallery .gitem {
+                    aspect-ratio: auto !important;
+                    height: auto !important;
+                    background-color: #fff;
+                    border: 1px solid var(--border);
+                    padding: 10px;
+                }
+
+                .project-gallery .gitem img {
+                    position: relative !important;
+                    object-fit: contain !important;
+                    width: 100% !important;
+                    height: auto !important;
+                    inset: auto !important;
+                }
+
                 .project-description-container {
                     padding: 40px;
                     background: var(--card);
@@ -301,7 +324,7 @@
             <!-- Reviews header & slider hidden until real reviews exist -->
 
             <div class="review-form-wrapper">
-                <h3>Nala wadaag ra'yigaaga</h3>
+                <h3>Ila wadaag ra'yigaaga</h3>
                 <form action="https://formspree.io/f/xqewzlpv" method="POST">
                     <input type="hidden" name="_subject" value="New Review: Residential Layout Plan">
                     <input type="hidden" name="project_name" value="Residential Layout Plan">
