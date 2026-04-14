@@ -5642,6 +5642,42 @@ select.premium-input {
         white-space: nowrap;
         font-size: 1.5rem !important;
     }
+
+    /* --- Service Cards Mobile Optimization --- */
+    .services-list {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .services-grid {
+        gap: 15px;
+        margin-top: 20px;
+        grid-template-columns: 1fr; /* Force 1 column on mobile to save space */
+    }
+
+    .service-card {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .service-icon-wrap {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        border-radius: 14px;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
 }
 
 
