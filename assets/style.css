@@ -4544,20 +4544,20 @@ html.js-loaded .reveal.visible {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 50px;
-    padding: 40px 50px;
-    background: var(--card);
-    border-radius: 40px;
-    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.1);
-    border: 1px solid var(--border);
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     max-width: 1050px;
     margin: 0 auto;
 }
 
 [data-theme='dark'] .premium-contact-container {
-    background: rgba(16, 24, 16, 0.4);
-    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.6);
+    background: transparent;
+    box-shadow: none;
 }
 
 .contact-text-gradient {
@@ -4642,13 +4642,13 @@ html.js-loaded .reveal.visible {
 }
 
 .premium-contact-form-side {
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
 }
 
 [data-theme='dark'] .premium-contact-form-side {
