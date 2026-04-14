@@ -5681,26 +5681,31 @@ select.premium-input {
 
     /* --- Project Info Bar Mobile Layout --- */
     .project-info-bar {
-        padding: 15px 0 !important;
+        padding: 12px 0 !important;
     }
     .info-grid {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: space-between !important;
-        gap: 10px !important;
-        padding: 0 15px !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1.5fr !important; /* Give more space to location */
+        gap: 8px !important;
+        padding: 0 10px !important;
+        text-align: center;
+        width: 100%;
     }
     .info-item {
         text-align: center;
-        flex: 1;
+        min-width: 0; /* Allow shrinking */
     }
     .info-item h4 {
-        font-size: 9px !important;
-        margin-bottom: 4px !important;
+        font-size: 8px !important;
+        margin-bottom: 2px !important;
+        opacity: 0.8;
     }
     .info-item p {
-        font-size: 12px !important;
+        font-size: 11px !important;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
     }
 }
 
