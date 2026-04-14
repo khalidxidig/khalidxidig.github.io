@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
 </head>
 
 <body data-asset-base="./">
@@ -115,11 +116,15 @@
                     <form class="contact-form" action="https://formspree.io/f/xqewzlpv" method="POST">
                         <div class="premium-form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="premium-input" required placeholder="John Doe">
+                            <input type="text" id="name" name="name" class="premium-input" required placeholder="Khalid Mohamed">
+                        </div>
+                        <div class="premium-form-group">
+                            <label for="phone">Your Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="premium-input phone-number-input" required placeholder="61 000 0000" title="Please enter a valid phone number">
                         </div>
                         <div class="premium-form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" class="premium-input" required placeholder="john@example.com">
+                            <input type="email" id="email" name="email" class="premium-input" required placeholder="khalid@example.com">
                         </div>
                         <div class="premium-form-group">
                             <label for="subject">Subject</label>
@@ -160,6 +165,24 @@
 
     <a href="https://wa.me/252619795567" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <script src="assets/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var input = document.querySelector("#phone");
+            window.intlTelInput(input, {
+                initialCountry: "auto",
+                geoIpLookup: function(success, failure) {
+                    fetch("https://ipapi.co/json/")
+                        .then(function(res) { return res.json(); })
+                        .then(function(data) { success(data.country_code); })
+                        .catch(function() { success("so"); });
+                },
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+                separateDialCode: true,
+                preferredCountries: ["so", "ke", "dj", "et", "ae", "us", "uk"]
+            });
+        });
+    </script>
 </body>
 
 </html>

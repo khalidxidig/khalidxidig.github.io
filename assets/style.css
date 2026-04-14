@@ -739,24 +739,126 @@ header {
 /* ==========================================================================
    9. Services Page
        ========================================================================== */
+/* --- PREMIUM SERVICE CARDS (Redesigned) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
+    margin-top: 40px;
 }
 
 .service-card {
     background: var(--card);
-    padding: 40px 30px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    border-top: 4px solid var(--primary);
+    border-radius: 24px;
+    padding: 45px 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+.service-icon-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.service-icon-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 25px;
+    background: inherit;
+    opacity: 0.2;
+    z-index: -1;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon-wrap {
+    transform: scale(1.1) rotate(6deg);
+}
+
+.service-card:hover .service-icon-wrap::after {
+    transform: scale(1.15);
+}
+
+/* Iconic Color Themes */
+.sc-blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.sc-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.sc-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.sc-orange { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+.sc-red { background: rgba(239, 44, 44, 0.1); color: #ef4444; }
+.sc-teal { background: rgba(20, 184, 166, 0.1); color: #14b8a6; }
+
+.service-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+.service-card:hover h3 {
+    color: var(--primary);
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    flex-grow: 1;
+}
+
+.service-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(34, 197, 94, 0.05);
+    transition: all 0.3s ease;
+}
+
+.service-action-link:hover {
+    background: var(--primary);
+    color: white !important;
+    gap: 15px;
+}
+
+[data-theme='dark'] .service-card {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='dark'] .service-action-link {
+    background: rgba(34, 197, 94, 0.1);
 }
 
 /* ==========================================================================
@@ -1411,8 +1513,9 @@ footer p {
     }
 
     .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        font-size: 0.85rem;
     }
 }
 
@@ -4565,7 +4668,30 @@ html.js-loaded .reveal.visible {
 .premium-form-group {
     margin-bottom: 25px;
 }
+.iti {
+    width: 100%;
+    display: block;
+}
 
+.iti input {
+    padding-left: 85px !important; 
+}
+
+/* Dark mode for intl-tel-input dropdown */
+[data-theme='dark'] .iti__country-list {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+[data-theme='dark'] .iti__country.iti__highlight,
+[data-theme='dark'] .iti__country:hover {
+    background-color: rgba(34, 197, 94, 0.15);
+}
+
+[data-theme='dark'] .iti__divider {
+    border-bottom: 1px solid var(--border);
+}
 .premium-form-group label {
     display: block;
     margin-bottom: 10px;
@@ -5504,6 +5630,17 @@ select.premium-input {
     .capsule-view-all {
         font-size: 0.8rem;
         padding: 5px 10px;
+    }
+    
+    .section-header h2 {
+        white-space: nowrap;
+        font-size: 1.8rem !important;
+    }
+    
+    .cta-section h2,
+    .cta-services h2 {
+        white-space: nowrap;
+        font-size: 1.5rem !important;
     }
 }
 
