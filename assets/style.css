@@ -1379,6 +1379,13 @@ footer p {
     .featured-projects {
         padding: 20px 0 40px;
     }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1401,6 +1408,11 @@ footer p {
 
     .btn {
         width: 100%;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 }
 
@@ -3943,6 +3955,7 @@ html.js-loaded .reveal.visible {
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .share-buttons {
@@ -4657,6 +4670,20 @@ select.premium-input {
 @media (max-width: 480px) {
     .premium-contact-container {
         padding: 30px 15px;
+    }
+    
+    .premium-contact-form-side {
+        padding: 25px 15px;
+        border-radius: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .premium-input {
+        padding: 14px 15px;
+        box-sizing: border-box;
+        max-width: 100%;
     }
     
     .contact-text-gradient {
