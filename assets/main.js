@@ -729,16 +729,18 @@ function initCounters() {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-count');
+                const suffix = counter.getAttribute('data-suffix') || '';
                 
                 const updateCount = () => {
-                    const count = +counter.innerText;
+                    const currentText = counter.innerText.replace(suffix, '');
+                    let count = parseFloat(currentText) || 0;
                     const inc = target / speed;
                     
                     if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
+                        counter.innerText = Math.ceil(count + inc) + suffix;
                         setTimeout(updateCount, 20);
                     } else {
-                        counter.innerText = target;
+                        counter.innerText = target + suffix;
                     }
                 };
                 
