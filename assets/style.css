@@ -5697,7 +5697,7 @@ select.premium-input {
     }
     .info-item h4 {
         font-size: 8px !important;
-        margin-bottom: 2px !important;
+        margin-bottom: 6px !important; /* Increased from 2px */
         opacity: 0.8;
     }
     .info-item p {
