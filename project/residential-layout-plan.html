@@ -80,7 +80,7 @@
             </div>
 
             <section class="project-description-container-wrapper"
-                style="padding: 80px 0; background-color: var(--card-bg); margin: 0 -20px;">
+                style="padding: 40px 0; background-color: var(--card-bg); margin: 0 -20px;">
                 <div class="container">
                     <div class="project-description-container">
                         <div class="description-content">
@@ -131,7 +131,7 @@
 
             <style>
                 .project-description-container {
-                    padding: 60px;
+                    padding: 40px;
                     background: var(--card);
                     border-radius: 40px;
                     box-shadow: var(--shadow-lg);
@@ -194,7 +194,7 @@
                 .features-landscape-section {
                     position: relative;
                     z-index: 1;
-                    padding-top: 50px;
+                    padding-top: 30px;
                     border-top: 1px solid var(--border);
                 }
 
@@ -217,18 +217,18 @@
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    gap: 20px;
+                    gap: 15px;
                 }
 
                 .feature-item-landscape {
                     display: flex;
                     align-items: center;
-                    gap: 15px;
+                    gap: 12px;
                     background: var(--bg);
-                    padding: 15px 25px;
-                    border-radius: 20px;
+                    padding: 12px 20px;
+                    border-radius: 15px;
                     border: 1px solid var(--border);
-                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    transition: all 0.3s ease;
                     box-shadow: var(--shadow-sm);
                 }
 
@@ -266,7 +266,7 @@
                 }
 
                 @media (max-width: 768px) {
-                    .project-description-container { padding: 30px 15px; }
+                    .project-description-container { padding: 25px 15px; }
                     .premium-title { font-size: 1.6rem; margin-bottom: 20px; }
                     .premium-title::after { width: 50px; height: 3px; bottom: -8px; }
                     .description-text { font-size: 0.95rem; line-height: 1.5; margin-top: 20px; }
@@ -275,20 +275,20 @@
                     .features-landscape-grid { 
                         display: grid; 
                         grid-template-columns: repeat(2, 1fr); 
-                        gap: 12px; 
+                        gap: 10px; 
                     }
                     .feature-item-landscape { 
                         flex-direction: column;
-                        padding: 15px 10px; 
+                        padding: 12px 8px; 
                         text-align: center;
-                        gap: 8px;
+                        gap: 6px;
                     }
                     .feature-item-landscape i { width: 32px; height: 32px; font-size: 1rem; }
                     .feature-item-landscape span { font-size: 0.85rem; }
                 }
             </style>
 
-    <section class="reviews-section">
+    <section class="reviews-section" style="padding-top: 40px;">
         <div class="container">
             <!-- Reviews header & slider hidden until real reviews exist -->
 
